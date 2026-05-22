@@ -7,9 +7,7 @@
     
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
-    <head>
-  <link rel="icon" type="image/png" href="img/Logo.png">
-</head>
+    <link rel="icon" type="image/png" href="img/Logo.png">
     <style>
         :root {
             --bg-dark: #0B0B0B;
@@ -293,43 +291,6 @@
 
 
 <script>
-
-document.addEventListener('keydown', function(event) {
-    const modal = document.getElementById('bibliaModal');
-    
-    // Verifica se o modal está aberto
-    if (modal.classList.contains('show')) {
-        const select = document.getElementById('chapterSelect');
-        const modalBody = document.querySelector('.modal-body');
-        
-        // Teclas para capítulos (Esquerda/Direita)
-        if (event.key === 'ArrowLeft' || event.key === 'ArrowRight') {
-            const direction = (event.key === 'ArrowLeft') ? -1 : 1;
-            const newIndex = select.selectedIndex + direction;
-            
-            if (newIndex >= 0 && newIndex < select.options.length) {
-                select.selectedIndex = newIndex;
-                select.dispatchEvent(new Event('change'));
-                
-                // Volta para o topo do modal ao trocar de capítulo
-                modalBody.scrollTop = 0;
-            }
-        }
-        
-        // Teclas para scroll (Cima/Baixo) - Valor reduzido para ficar mais suave
-        const scrollAmount = 40; 
-        if (event.key === 'ArrowUp') {
-            event.preventDefault();
-            modalBody.scrollTop -= scrollAmount;
-        } else if (event.key === 'ArrowDown') {
-            event.preventDefault();
-            modalBody.scrollTop += scrollAmount;
-        }
-    }
-});
-
-
-
 const totalCapitulos = {
     'gn': 50, 'ex': 40, 'lv': 27, 'nm': 36, 'dt': 34,
     'js': 24, 'jz': 21, 'rt': 4,
@@ -362,208 +323,100 @@ const totalCapitulos = {
 };
 
 const mapaLivros = {
-    gn: "Gênesis",
-    ex: "Êxodo",
-    lv: "Levítico",
-    nm: "Números",
-    dt: "Deuteronômio",
-    js: "Josué",
-    jz: "Juízes",
-    rt: "Rute",
-    "1sm": "1 Samuel",
-    "2sm": "2 Samuel",
-    "1rs": "1 Reis",
-    "2rs": "2 Reis",
-    "1cr": "1 Crônicas",
-    "2cr": "2 Crônicas",
-    ed: "Esdras",
-    ne: "Neemias",
-    et: "Ester",
-    job: "Jó",
-    sl: "Salmos",
-    pv: "Provérbios",
-    ec: "Eclesiastes",
-    ct: "Cânticos",
-    is: "Isaías",
-    jr: "Jeremias",
-    lm: "Lamentações de Jeremias",
-    ez: "Ezequiel",
-    dn: "Daniel",
-    os: "Oséias",
-    jl: "Joel",
-    am: "Amós",
-    ob: "Obadias",
-    jn: "Jonas",
-    mq: "Miquéias",
-    na: "Naum",
-    hc: "Habacuque",
-    sf: "Sofonias",
-    ag: "Ageu",
-    zc: "Zacarias",
-    ml: "Malaquias",
-    mt: "Mateus",
-    mc: "Marcos",
-    lc: "Lucas",
-    jo: "João",
-    at: "Atos",
-    rm: "Romanos",
-    "1co": "1 Coríntios",
-    "2co": "2 Coríntios",
-    gl: "Gálatas",
-    ef: "Efésios",
-    fp: "Filipenses",
-    cl: "Colossenses",
-    "1ts": "1 Tessalonicenses",
-    "2ts": "2 Tessalonicenses",
-    "1tm": "1 Timóteo",
-    "2tm": "2 Timóteo",
-    tt: "Tito",
-    fm: "Filemom",
-    hb: "Hebreus",
-    tg: "Tiago",
-    "1pe": "1 Pedro",
-    "2pe": "2 Pedro",
-    "1jo": "1 João",
-    "2jo": "2 João",
-    "3jo": "3 João",
-    jd: "Judas",
-    ap: "Apocalipse"
+    gn: "Gênesis", ex: "Êxodo", lv: "Levítico", nm: "Números", dt: "Deuteronômio",
+    js: "Josué", jz: "Juízes", rt: "Rute", "1sm": "1 Samuel", "2sm": "2 Samuel",
+    "1rs": "1 Reis", "2rs": "2 Reis", "1cr": "1 Crônicas", "2cr": "2 Crônicas",
+    ed: "Esdras", ne: "Neemias", et: "Ester", job: "Jó", sl: "Salmos",
+    pv: "Provérbios", ec: "Eclesiastes", ct: "Cânticos", is: "Isaías", jr: "Jeremias",
+    lm: "Lamentações de Jeremias", ez: "Ezequiel", dn: "Daniel", os: "Oséias",
+    jl: "Joel", am: "Amós", ob: "Obadias", jn: "Jonas", mq: "Miquéias",
+    na: "Naum", hc: "Habacuque", sf: "Sofonias", ag: "Ageu", zc: "Zacarias",
+    ml: "Malaquias", mt: "Mateus", mc: "Marcos", lc: "Lucas", jo: "João",
+    at: "Atos", rm: "Romanos", "1co": "1 Coríntios", "2co": "2 Coríntios",
+    gl: "Gálatas", ef: "Efésios", fp: "Filipenses", cl: "Colossenses",
+    "1ts": "1 Tessalonicenses", "2ts": "2 Tessalonicenses", "1tm": "1 Timóteo",
+    "2tm": "2 Timóteo", tt: "Tito", fm: "Filemom", hb: "Hebreus", tg: "Tiago",
+    "1pe": "1 Pedro", "2pe": "2 Pedro", "1jo": "1 João", "2jo": "2 João",
+    "3jo": "3 João", jd: "Judas", ap: "Apocalipse"
 };
 
 let livroAtual = '';
 let biblia = [];
 
-async function carregarBiblia() {
-
-    try {
-
-        const response = await fetch('./biblia.json');
-
-        biblia = await response.json();
-
-        console.log('Bíblia carregada com sucesso');
-
-    } catch (error) {
-
-        console.error('Erro ao carregar biblia.json', error);
+// Monitora teclas
+document.addEventListener('keydown', function(event) {
+    const modal = document.getElementById('bibliaModal');
+    if (modal.classList.contains('show')) {
+        const select = document.getElementById('chapterSelect');
+        const modalBody = document.querySelector('.modal-body');
+        
+        if (event.key === 'ArrowLeft' || event.key === 'ArrowRight') {
+            const direction = (event.key === 'ArrowLeft') ? -1 : 1;
+            const newIndex = select.selectedIndex + direction;
+            if (newIndex >= 0 && newIndex < select.options.length) {
+                select.selectedIndex = newIndex;
+                carregarConteudo();
+            }
+        }
+        
+        const scrollAmount = 40; 
+        if (event.key === 'ArrowUp') {
+            event.preventDefault();
+            modalBody.scrollTop -= scrollAmount;
+        } else if (event.key === 'ArrowDown') {
+            event.preventDefault();
+            modalBody.scrollTop += scrollAmount;
+        }
     }
-}
+});
 
+async function carregarBiblia() {
+    try {
+        const response = await fetch('./biblia.json');
+        biblia = await response.json();
+    } catch (error) { console.error('Erro ao carregar biblia.json', error); }
+}
 carregarBiblia();
 
 function abrirLivro(id, nome) {
-
     livroAtual = id;
-
     document.getElementById('bookTitle').innerText = nome;
-
     const select = document.getElementById('chapterSelect');
-
     select.innerHTML = '';
-
     const maxCaps = totalCapitulos[id] || 1;
-
     for (let i = 1; i <= maxCaps; i++) {
-
-        select.innerHTML += `
-            <option value="${i}">
-                Capítulo ${i}
-            </option>
-        `;
+        select.innerHTML += `<option value="${i}">Capítulo ${i}</option>`;
     }
-
-    new bootstrap.Modal(
-        document.getElementById('bibliaModal')
-    ).show();
-
+    new bootstrap.Modal(document.getElementById('bibliaModal')).show();
     carregarConteudo();
 }
 
 function carregarConteudo() {
-
-    const chapter =
-        parseInt(document.getElementById('chapterSelect').value);
-
-    const container =
-        document.getElementById('chapterContent');
-
-    container.innerHTML = `
-        <div class="text-center p-4">
-            Carregando versículos...
-        </div>
-    `;
+    const chapter = parseInt(document.getElementById('chapterSelect').value);
+    const container = document.getElementById('chapterContent');
+    const modalBody = document.querySelector('.modal-body');
+    
+    // Sempre volta para o topo ao carregar novo conteúdo
+    modalBody.scrollTop = 0;
 
     try {
-
         const nomeLivro = mapaLivros[livroAtual];
-
-        const livro = biblia.find(
-            l => l.name === nomeLivro
-        );
-
-        if (!livro) {
-
-            container.innerHTML = `
-                <div style="color:#ffb3b3;">
-                    Livro não encontrado.
-                </div>
-            `;
-
-            return;
-        }
-
-        const capitulo =
-            livro.chapters[chapter - 1];
-
-        if (!capitulo) {
-
-            container.innerHTML = `
-                <div style="color:#ffb3b3;">
-                    Capítulo não encontrado.
-                </div>
-            `;
-
-            return;
-        }
+        const livro = biblia.find(l => l.name === nomeLivro);
+        if (!livro) return;
+        const capitulo = livro.chapters[chapter - 1];
+        if (!capitulo) return;
 
         let html = '';
-
+        const livrosEvangelho = ['mt', 'mc', 'lc', 'jo', 'ap'];
+        
         capitulo.forEach((versiculo, index) => {
-
-            let textoVersiculo = versiculo;
-
-const livrosEvangelho = ['mt', 'mc', 'lc', 'jo', 'ap'];
-
-if (livrosEvangelho.includes(livroAtual)) {
-
-    textoVersiculo = `
-        <span style="color:#ff4d4d;">
-            ${versiculo}
-        </span>
-    `;
-}
-
-html += `
-    <p style="margin-bottom:12px;">
-        <strong>${index + 1}</strong>
-        ${textoVersiculo}
-    </p>
-`;
+            let style = livrosEvangelho.includes(livroAtual) ? 'color:#ff4d4d;' : '';
+            html += `<p style="margin-bottom:12px; ${style}"><strong>${index + 1}</strong> ${versiculo}</p>`;
         });
-
         container.innerHTML = html;
-
     } catch (error) {
-
-        console.error(error);
-
-        container.innerHTML = `
-            <div style="color:#ffb3b3;">
-                Erro ao carregar versículos.
-            </div>
-        `;
+        container.innerHTML = "Erro ao carregar versículos.";
     }
 }
-
 </script>
 </html>
