@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="pt-pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YAHWEH | Aprofunda-te na Palavra</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-dark: #0B0B0B;
+            --card-bg: #131313;
+            --card-bg-hover: #1A1A1A;
+            --gold: #C8A96B;
+            --gold-light: #F4E4BC;
+            --gold-dark: #8B6E3C;
+            --gold-hover: #B39256;
+            --white-biblical: #E5E5E5;
+            --gray-text: #888888;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--white-biblical);
+            font-family: 'Playfair Display', serif; 
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, .nav-link, .section-title {
+            font-family: 'Cinzel', serif;
+            letter-spacing: 2px;
+        }
+
+        /* TÍTULO YAHWEH: DOURADO ESTÁTICO */
+        .hero-title {
+            font-size: 7rem;
+            font-weight: 900;
+            margin-bottom: 5px;
+            font-family: 'Cinzel', serif;
+            letter-spacing: 12px;
+            text-transform: uppercase;
+            background: linear-gradient(to bottom, var(--gold-light) 0%, var(--gold) 50%, var(--gold-dark) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            filter: drop-shadow(0px 2px 2px rgba(0,0,0,0.8));
+        }
+
+        /* NAVBAR E LOGO */
+        .navbar {
+            background-color: var(--bg-dark);
+            border-bottom: 1px solid rgba(200, 169, 107, 0.15);
+            padding: 1.5rem 0;
+        }
+
+        .logo-img {
+            height: 75px; 
+            width: auto;
+            display: inline-block;
+            animation: heartbeat-slow 4s infinite ease-in-out;
+            transform-origin: center;
+        }
+
+        @keyframes heartbeat-slow {
+            0% { transform: scale(1); filter: drop-shadow(0 0 2px rgba(200, 169, 107, 0.1)); }
+            50% { transform: scale(1.05); filter: drop-shadow(0 0 8px rgba(200, 169, 107, 0.3)); }
+            100% { transform: scale(1); filter: drop-shadow(0 0 2px rgba(200, 169, 107, 0.1)); }
+        }
+
+        .nav-link {
+            color: var(--white-biblical) !important;
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-left: 30px;
+            letter-spacing: 2px;
+            display: inline-block;
+            position: relative;
+            transition: color 0.4s ease;
+        }
+
+        .nav-link:hover { color: var(--gold) !important; }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            transform: scaleX(0);
+            height: 1px;
+            bottom: -5px;
+            left: 0;
+            background-color: var(--gold);
+            transform-origin: bottom right;
+            transition: transform 0.4s ease-out;
+        }
+
+        .nav-link:hover::after { transform: scaleX(1); transform-origin: bottom left; }
+
+        /* HERO SECTION */
+       /* HERO SECTION - Ajustado para baixar o conteúdo */
+    .hero-section { 
+    padding: 200px 0 80px 0; /* Aumentei o primeiro valor de 140px/80px para 200px */
+    text-align: center; 
+}
+       .hero-subtitle { 
+            font-size: 1.5rem; 
+            color: #D1D1D1;
+            font-style: italic; 
+            margin-bottom: 45px; 
+        }
+
+        .btn-yahweh-gold {
+            background-color: var(--gold);
+            color: #000000 !important;
+            border: none;
+            padding: 14px 40px;
+            font-weight: 700;
+            text-transform: uppercase;
+            font-family: 'Cinzel', serif;
+            border-radius: 0;
+            transition: all 0.3s ease;
+        }
+
+        .btn-yahweh-gold:hover { background-color: var(--gold-hover); transform: translateY(-3px); }
+
+        .btn-yahweh-outline {
+            border: 1px solid var(--gold);
+            color: var(--gold) !important;
+            padding: 14px 40px;
+            border-radius: 0;
+            font-family: 'Cinzel', serif;
+            text-transform: uppercase;
+            background: transparent;
+            transition: all 0.3s ease;
+        }
+
+        .btn-yahweh-outline:hover { background-color: var(--gold); color: #000000 !important; transform: translateY(-3px); }
+
+        .hero-divider { height: 1px; background: linear-gradient(to right, transparent, rgba(200, 169, 107, 0.3), transparent); width: 60%; margin: 60px auto 40px auto; }
+        .hero-sub-footer { display: flex; justify-content: center; gap: 60px; }
+        .hero-stat-item { text-align: center; position: relative; }
+        .hero-stat-item:not(:last-child)::after { content: '✦'; position: absolute; right: -35px; top: 50%; transform: translateY(-50%); color: rgba(200, 169, 107, 0.2); font-size: 0.8rem; }
+        .stat-number { display: block; font-size: 1.4rem; font-weight: 700; color: var(--gold); letter-spacing: 1px; font-family: 'Cinzel', serif; }
+        .stat-number-label { display: block; font-size: 0.75rem; color: var(--gray-text); text-transform: uppercase; letter-spacing: 2px; font-family: 'Cinzel', serif; }
+
+        /* INFO SECTION */
+        .info-section { padding: 60px 0 100px 0; }
+        .section-header { margin-bottom: 60px; }
+        .section-badge { color: var(--gold); font-size: 0.85rem; letter-spacing: 4px; text-transform: uppercase; font-weight: 700; display: block; margin-bottom: 10px; }
+        .section-title { font-size: 2.2rem; color: var(--white-biblical); font-weight: 700; }
+        .section-subtitle { color: var(--gray-text); font-size: 1.1rem; font-style: italic; max-width: 600px; margin: 10px auto 0 auto; }
+        .card-custom {
+            background: linear-gradient(145deg, var(--card-bg), #0f0f0f);
+            border: 1px solid rgba(200, 169, 107, 0.12);
+            padding: 60px 40px;
+            text-align: center;
+            height: 100%;
+            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+            position: relative;
+        }
+        .card-custom:hover { border-color: var(--gold); background: var(--card-bg-hover); transform: translateY(-8px); }
+        .card-custom::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 3px; background-color: var(--gold); transform: scaleX(0); transition: transform 0.4s ease; }
+        .card-custom:hover::before { transform: scaleX(1); }
+        .card-img-icon { height: 60px; width: auto; margin-bottom: 25px; }
+        .card-title { color: var(--gold); font-size: 1.4rem; font-weight: 700; margin-bottom: 20px; text-transform: uppercase; }
+        .card-text { font-size: 1.05rem; line-height: 1.7; color: #C0C0C0; }
+
+        /* VERSÍCULO E RODAPÉ */
+        .verse-section { padding: 120px 0; background: linear-gradient(to bottom, #0b0b0b, #111, #0b0b0b); }
+        .verse-text { font-size: 2.2rem; font-style: italic; color: var(--white-biblical); max-width: 800px; margin: 0 auto; line-height: 1.4; }
+        .verse-ref { font-family: 'Cinzel', serif; color: var(--gold); margin-top: 30px; font-size: 1.2rem; letter-spacing: 3px; }
+        
+        /* NOVO ESTILO DO RODAPÉ */
+        footer { 
+            padding: 80px 0 40px 0; 
+            border-top: 1px solid rgba(200, 169, 107, 0.2); 
+            background-color: #080808;
+            font-family: 'Cinzel', serif; 
+        }
+        .footer-brand { font-size: 1.5rem; color: var(--gold); letter-spacing: 4px; margin-bottom: 1rem; display: block; }
+        .footer-heading { color: var(--gold); font-size: 0.9rem; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 20px; }
+        .footer-link { color: var(--gray-text); text-decoration: none; display: block; margin-bottom: 10px; transition: 0.3s; font-size: 0.9rem; }
+        .footer-link:hover { color: var(--gold); }
+        .copyright { color: #444; font-size: 0.75rem; margin-top: 40px; letter-spacing: 1px; }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <img src="img/Logo.png" alt="YAHWEH Logo" class="logo-img">
+            </a>
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon" style="filter: invert(1);"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <div class="navbar-nav ms-auto align-items-center">
+                    <a class="nav-link" href="index.html">Índice</a>
+                    <a class="nav-link" href="biblia.html">Bíblia Sagrada</a>
+                    <a class="nav-link" href="ia.html">Dúvidas e respostas</a>
+                     <a class="nav-link" href="estudos.html">Estudos bíblicos</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <section class="hero-section">
+        <div class="container">
+            <h1 class="hero-title">YAHWEH</h1>
+            <p class="hero-subtitle">“Aprofunda-te na Palavra do Senhor.”</p>
+            <div class="mb-4">
+                <a href="biblia.html" class="btn btn-yahweh-gold me-3">Ler Bíblia</a>
+                <a href="ia.html" class="btn btn-yahweh-outline">Tem alguma dúvida?</a>
+            </div>
+            <div class="hero-divider"></div>
+            <div class="hero-sub-footer">
+                <div class="hero-stat-item">
+                    <span class="stat-number">66</span>
+                    <span class="stat-number-label">Livros Sagrados</span>
+                </div>
+                <div class="hero-stat-item">
+                    <span class="stat-number">1.189</span>
+                    <span class="stat-number-label">Capítulos</span>
+                </div>
+                <div class="hero-stat-item">
+                    <span class="stat-number">2930</span>
+                    <span class="stat-number-label">Personagens</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+   <section class="container info-section">
+    <div class="section-header text-center">
+        <span class="section-badge">Ecossistema Sagrado</span>
+        <h2 class="section-title">Explore as Ferramentas</h2>
+        <p class="section-subtitle">Recursos desenvolvidos para elevar e consolidar a sua jornada espiritual e teológica.</p>
+    </div>
+    
+    
+    <div class="row g-4 justify-content-center">
+        
+        <div class="col-12 col-md-4">
+            <div class="card-custom d-flex flex-column align-items-center h-100">
+                <img src="img/biblia1.png" alt="Bíblia" class="card-img-icon">
+                <h3 class="card-title">Bíblia Sagrada</h3>
+                <p class="card-text flex-grow-1">Aprofunde-se muito mais nas sagradas escrituras.</p>
+                <a href="biblia.html" class="btn btn-yahweh-outline mt-3">Ler Bíblia</a>
+            </div>
+        </div>
+
+        <div class="col-12 col-md-4">
+            <div class="card-custom d-flex flex-column align-items-center h-100">
+                <img src="img/biblia2.png" alt="IA" class="card-img-icon">
+                <h3 class="card-title">Sistema IA</h3>
+                <p class="card-text flex-grow-1">Diálogos inteligentes para compreensão profunda de contextos.</p>
+                <a href="ia.html" class="btn btn-yahweh-outline mt-3">Iniciar Diálogo</a>
+            </div>
+        </div>
+
+        <div class="col-12 col-md-4">
+            <div class="card-custom d-flex flex-column align-items-center h-100">
+                <img src="img/biblia3.png" alt="Estudos" class="card-img-icon">
+                <h3 class="card-title">Estudos</h3>
+                <p class="card-text flex-grow-1">Meditações e planos de estudo para o espírito.</p>
+                <a href="estudos.html" class="btn btn-yahweh-outline mt-3">Ver Estudos</a>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+    <section class="verse-section text-center">
+        <div class="container">
+            <p class="verse-text">“Lâmpada para os meus pés é tua palavra e luz para o meu caminho.”</p>
+            <p class="verse-ref">— Salmos 119:105 —</p>
+        </div>
+    </section>
+
+<footer>
+    <div class="container">
+        <div class="row g-4">
+            <div class="col-md-4">
+                <div class="d-flex align-items-center mb-3">
+                    <img src="img/Logo.png" alt="YAHWEH Logo" style="height: 40px; width: auto; margin-right: 15px;">
+                    <span class="footer-brand" style="margin-bottom: 0;">YAHWEH</span>
+                </div>
+                <p style="color:var(--gray-text); font-size: 0.85rem;">Aprofunda-te na Palavra com as nossas ferramentas digitais de estudo bíblico.</p>
+            </div>
+            
+            <div class="col-md-4">
+                <h4 class="footer-heading">Navegação</h4>
+                <a href="index.html" class="footer-link">Início</a>
+                <a href="biblia.html" class="footer-link">Bíblia Sagrada</a>
+                <a href="ia.html" class="footer-link">Dúvidas e respostas</a>
+                <a href="estudos.html" class="footer-link">Estudos bíblicos</a>
+            </div>
+
+            <div class="col-md-4">
+                <h4 class="footer-heading">Sobre</h4>
+                <p style="color:var(--gray-text); font-size: 0.85rem;">Compromisso com a verdade e o estudo aprofundado das Escrituras Sagradas.</p>
+            </div>
+        </div>
+        
+        <div class="text-center copyright">
+            &copy; 2026 YAHWEH - AD MAIOREM DEI GLORIAM
+        </div>
+    </div>
+</footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

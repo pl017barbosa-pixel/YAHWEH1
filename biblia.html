@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="pt-pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YAHWEH | Bíblia Sagrada</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-dark: #0B0B0B;
+            --card-bg: #131313;
+            --card-bg-hover: #1A1A1A;
+            --gold: #C8A96B;
+            --gold-light: #F4E4BC;
+            --gold-dark: #8B6E3C;
+            --gold-hover: #B39256;
+            --white-biblical: #E5E5E5;
+            --gray-text: #888888;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--white-biblical);
+            font-family: 'Playfair Display', serif; 
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, .nav-link, .section-title, .testamento-title {
+            font-family: 'Cinzel', serif;
+            letter-spacing: 2px;
+        }
+
+        /* NAVBAR E LOGO */
+        .navbar {
+            background-color: var(--bg-dark);
+            border-bottom: 1px solid rgba(200, 169, 107, 0.15);
+            padding: 1.5rem 0;
+        }
+
+        .logo-img {
+            height: 75px; 
+            width: auto;
+            display: inline-block;
+            animation: heartbeat-slow 4s infinite ease-in-out;
+            transform-origin: center;
+        }
+
+        @keyframes heartbeat-slow {
+            0% { transform: scale(1); filter: drop-shadow(0 0 2px rgba(200, 169, 107, 0.1)); }
+            50% { transform: scale(1.05); filter: drop-shadow(0 0 8px rgba(200, 169, 107, 0.3)); }
+            100% { transform: scale(1); filter: drop-shadow(0 0 2px rgba(200, 169, 107, 0.1)); }
+        }
+
+        .nav-link {
+            color: var(--white-biblical) !important;
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-left: 30px;
+            letter-spacing: 2px;
+            display: inline-block;
+            position: relative;
+            transition: color 0.4s ease;
+        }
+
+        .nav-link:hover { color: var(--gold) !important; }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            transform: scaleX(0);
+            height: 1px;
+            bottom: -5px;
+            left: 0;
+            background-color: var(--gold);
+            transform-origin: bottom right;
+            transition: transform 0.4s ease-out;
+        }
+
+        .nav-link:hover::after { transform: scaleX(1); transform-origin: bottom left; }
+
+        /* ESTILOS DA PÁGINA BÍBLIA */
+        .biblia-header { padding: 150px 0 50px 0; text-align: center; }
+        .biblia-title { font-size: 3.5rem; color: var(--gold); text-transform: uppercase; }
+        .testamento-container { background: var(--card-bg); border: 1px solid rgba(200, 169, 107, 0.15); padding: 40px; height: 100%; }
+        .testamento-title { color: var(--gold); border-bottom: 1px solid var(--gold); padding-bottom: 15px; margin-bottom: 25px; text-align: center; }
+        
+        .book-list { list-style: none; padding: 0; columns: 2; column-gap: 40px; }
+        .book-link { color: #ccc; text-decoration: none; font-size: 1.2rem; transition: 0.3s; display: block; cursor: pointer; }
+        .book-link:hover { color: var(--gold); padding-left: 10px; }
+
+        footer { padding: 80px 0 40px 0; border-top: 1px solid rgba(200, 169, 107, 0.2); background-color: #080808; font-family: 'Cinzel', serif; }
+        .footer-brand { font-size: 1.5rem; color: var(--gold); letter-spacing: 4px; margin-bottom: 1rem; display: block; }
+        .footer-heading { color: var(--gold); font-size: 0.9rem; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 20px; }
+        .footer-link { color: var(--gray-text); text-decoration: none; display: block; margin-bottom: 10px; transition: 0.3s; font-size: 0.9rem; }
+        .footer-link:hover { color: var(--gold); }
+        .copyright { color: #444; font-size: 0.75rem; margin-top: 40px; letter-spacing: 1px; }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <img src="img/Logo.png" alt="YAHWEH Logo" class="logo-img">
+            </a>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <div class="navbar-nav ms-auto align-items-center">
+                    <a class="nav-link" href="index.html">Índice</a>
+                    <a class="nav-link" href="biblia.html">Bíblia Sagrada</a>
+                    <a class="nav-link" href="ia.html">Dúvidas e respostas</a>
+                    <a class="nav-link" href="estudos.html">Estudos bíblicos</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <section class="biblia-header">
+        <h1 class="biblia-title">Bíblia Sagrada</h1>
+    </section>
+
+    <div class="container mb-5">
+        <div class="row g-4">
+            <div class="col-md-6">
+                <div class="testamento-container">
+                    <h2 class="testamento-title">Velho Testamento</h2>
+                    <ul class="book-list">
+                        <li><a class="book-link" onclick="abrirLivro('gn', 'Gênesis')">Gênesis</a></li><li><a class="book-link" onclick="abrirLivro('ex', 'Êxodo')">Êxodo</a></li><li><a class="book-link" onclick="abrirLivro('lv', 'Levítico')">Levítico</a></li><li><a class="book-link" onclick="abrirLivro('nm', 'Números')">Números</a></li><li><a class="book-link" onclick="abrirLivro('dt', 'Deuteronômio')">Deuteronômio</a></li><li><a class="book-link" onclick="abrirLivro('js', 'Josué')">Josué</a></li><li><a class="book-link" onclick="abrirLivro('jz', 'Juízes')">Juízes</a></li><li><a class="book-link" onclick="abrirLivro('rt', 'Rute')">Rute</a></li><li><a class="book-link" onclick="abrirLivro('1sm', '1 Samuel')">1 Samuel</a></li><li><a class="book-link" onclick="abrirLivro('2sm', '2 Samuel')">2 Samuel</a></li><li><a class="book-link" onclick="abrirLivro('1rs', '1 Reis')">1 Reis</a></li><li><a class="book-link" onclick="abrirLivro('2rs', '2 Reis')">2 Reis</a></li><li><a class="book-link" onclick="abrirLivro('1cr', '1 Crônicas')">1 Crônicas</a></li><li><a class="book-link" onclick="abrirLivro('2cr', '2 Crônicas')">2 Crônicas</a></li><li><a class="book-link" onclick="abrirLivro('ed', 'Esdras')">Esdras</a></li><li><a class="book-link" onclick="abrirLivro('ne', 'Neemias')">Neemias</a></li><li><a class="book-link" onclick="abrirLivro('et', 'Ester')">Ester</a></li><li><a class="book-link" onclick="abrirLivro('job', 'Jó')">Jó</a></li><li><a class="book-link" onclick="abrirLivro('sl', 'Salmos')">Salmos</a></li><li><a class="book-link" onclick="abrirLivro('pv', 'Provérbios')">Provérbios</a></li><li><a class="book-link" onclick="abrirLivro('ec', 'Eclesiastes')">Eclesiastes</a></li><li><a class="book-link" onclick="abrirLivro('ct', 'Cantares')">Cantares</a></li><li><a class="book-link" onclick="abrirLivro('is', 'Isaías')">Isaías</a></li><li><a class="book-link" onclick="abrirLivro('jr', 'Jeremias')">Jeremias</a></li><li><a class="book-link" onclick="abrirLivro('lm', 'Lamentações')">Lamentações</a></li><li><a class="book-link" onclick="abrirLivro('ez', 'Ezequiel')">Ezequiel</a></li><li><a class="book-link" onclick="abrirLivro('dn', 'Daniel')">Daniel</a></li><li><a class="book-link" onclick="abrirLivro('os', 'Oseias')">Oseias</a></li><li><a class="book-link" onclick="abrirLivro('jl', 'Joel')">Joel</a></li><li><a class="book-link" onclick="abrirLivro('am', 'Amós')">Amós</a></li><li><a class="book-link" onclick="abrirLivro('ob', 'Obadias')">Obadias</a></li><li><a class="book-link" onclick="abrirLivro('jn', 'Jonas')">Jonas</a></li><li><a class="book-link" onclick="abrirLivro('mq', 'Miqueias')">Miqueias</a></li><li><a class="book-link" onclick="abrirLivro('na', 'Naum')">Naum</a></li><li><a class="book-link" onclick="abrirLivro('hc', 'Habacuque')">Habacuque</a></li><li><a class="book-link" onclick="abrirLivro('sf', 'Sofonias')">Sofonias</a></li><li><a class="book-link" onclick="abrirLivro('ag', 'Ageu')">Ageu</a></li><li><a class="book-link" onclick="abrirLivro('zc', 'Zacarias')">Zacarias</a></li><li><a class="book-link" onclick="abrirLivro('ml', 'Malaquias')">Malaquias</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="testamento-container">
+                    <h2 class="testamento-title">Novo Testamento</h2>
+                    <ul class="book-list">
+                        <li><a class="book-link" onclick="abrirLivro('mt', 'Mateus')">Mateus</a></li><li><a class="book-link" onclick="abrirLivro('mc', 'Marcos')">Marcos</a></li><li><a class="book-link" onclick="abrirLivro('lc', 'Lucas')">Lucas</a></li><li><a class="book-link" onclick="abrirLivro('jo', 'João')">João</a></li><li><a class="book-link" onclick="abrirLivro('at', 'Atos')">Atos</a></li><li><a class="book-link" onclick="abrirLivro('rm', 'Romanos')">Romanos</a></li><li><a class="book-link" onclick="abrirLivro('1co', '1 Coríntios')">1 Coríntios</a></li><li><a class="book-link" onclick="abrirLivro('2co', '2 Coríntios')">2 Coríntios</a></li><li><a class="book-link" onclick="abrirLivro('gl', 'Gálatas')">Gálatas</a></li><li><a class="book-link" onclick="abrirLivro('ef', 'Efésios')">Efésios</a></li><li><a class="book-link" onclick="abrirLivro('fp', 'Filipenses')">Filipenses</a></li><li><a class="book-link" onclick="abrirLivro('cl', 'Colossenses')">Colossenses</a></li><li><a class="book-link" onclick="abrirLivro('1ts', '1 Tessalonicenses')">1 Tessalonicenses</a></li><li><a class="book-link" onclick="abrirLivro('2ts', '2 Tessalonicenses')">2 Tessalonicenses</a></li><li><a class="book-link" onclick="abrirLivro('1tm', '1 Timóteo')">1 Timóteo</a></li><li><a class="book-link" onclick="abrirLivro('2tm', '2 Timóteo')">2 Timóteo</a></li><li><a class="book-link" onclick="abrirLivro('tt', 'Tito')">Tito</a></li><li><a class="book-link" onclick="abrirLivro('fm', 'Filemom')">Filemom</a></li><li><a class="book-link" onclick="abrirLivro('hb', 'Hebreus')">Hebreus</a></li><li><a class="book-link" onclick="abrirLivro('tg', 'Tiago')">Tiago</a></li><li><a class="book-link" onclick="abrirLivro('1pe', '1 Pedro')">1 Pedro</a></li><li><a class="book-link" onclick="abrirLivro('2pe', '2 Pedro')">2 Pedro</a></li><li><a class="book-link" onclick="abrirLivro('1jo', '1 João')">1 João</a></li><li><a class="book-link" onclick="abrirLivro('2jo', '2 João')">2 João</a></li><li><a class="book-link" onclick="abrirLivro('3jo', '3 João')">3 João</a></li><li><a class="book-link" onclick="abrirLivro('jd', 'Judas')">Judas</a></li><li><a class="book-link" onclick="abrirLivro('ap', 'Apocalipse')">Apocalipse</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+   <div class="modal fade" id="bibliaModal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-lg modal-dialog-scrollable">
+    <div class="modal-content" style="background-color: var(--card-bg); color: var(--white-biblical); border: 1px solid var(--gold);">
+      <div class="modal-header border-0">
+        <h5 class="modal-title" id="bookTitle" style="color: var(--gold); font-family: 'Cinzel', serif;"></h5>
+        <div class="d-flex ms-auto">
+            <select id="chapterSelect" class="form-select form-select-sm" style="background-color: #0B0B0B; color: var(--gold); border: 1px solid var(--gold);" onchange="carregarConteudo()">
+                <option value="1">Cap 1</option>
+            </select>
+        </div>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body" id="chapterContent" style="font-family: 'Playfair Display', serif; font-size: 1.1rem; line-height: 1.8;">
+        Carregando versículos...
+      </div>
+    </div>
+  </div>
+</div>
+
+    <footer>
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="d-flex align-items-center mb-3">
+                        <img src="img/Logo.png" alt="YAHWEH Logo" style="height: 40px; width: auto; margin-right: 15px;">
+                        <span class="footer-brand" style="margin-bottom: 0;">YAHWEH</span>
+                    </div>
+                    <p style="color:var(--gray-text); font-size: 0.85rem;">Aprofunda-te na Palavra com as nossas ferramentas digitais de estudo bíblico.</p>
+                </div>
+                <div class="col-md-4">
+                    <h4 class="footer-heading">Navegação</h4>
+                    <a href="index.html" class="footer-link">Início</a>
+                    <a href="biblia.html" class="footer-link">Bíblia Sagrada</a>
+                    <a href="ia.html" class="footer-link">Dúvidas e respostas</a>
+                    <a href="estudos.html" class="footer-link">Estudos bíblicos</a>
+                </div>
+                <div class="col-md-4">
+                    <h4 class="footer-heading">Sobre</h4>
+                    <p style="color:var(--gray-text); font-size: 0.85rem;">Compromisso com a verdade e o estudo aprofundado das Escrituras Sagradas.</p>
+                </div>
+            </div>
+            <div class="text-center copyright">
+                &copy; 2026 YAHWEH - AD MAIOREM DEI GLORIAM
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+
+<script>
+
+document.addEventListener('keydown', function(event) {
+    const modal = document.getElementById('bibliaModal');
+    
+    // Verifica se o modal está aberto
+    if (modal.classList.contains('show')) {
+        const select = document.getElementById('chapterSelect');
+        const modalBody = document.querySelector('.modal-body');
+        
+        // Teclas para capítulos (Esquerda/Direita)
+        if (event.key === 'ArrowLeft' || event.key === 'ArrowRight') {
+            const direction = (event.key === 'ArrowLeft') ? -1 : 1;
+            const newIndex = select.selectedIndex + direction;
+            
+            if (newIndex >= 0 && newIndex < select.options.length) {
+                select.selectedIndex = newIndex;
+                select.dispatchEvent(new Event('change'));
+                
+                // Volta para o topo do modal ao trocar de capítulo
+                modalBody.scrollTop = 0;
+            }
+        }
+        
+        // Teclas para scroll (Cima/Baixo) - Valor reduzido para ficar mais suave
+        const scrollAmount = 40; 
+        if (event.key === 'ArrowUp') {
+            event.preventDefault();
+            modalBody.scrollTop -= scrollAmount;
+        } else if (event.key === 'ArrowDown') {
+            event.preventDefault();
+            modalBody.scrollTop += scrollAmount;
+        }
+    }
+});
+
+
+
+const totalCapitulos = {
+    'gn': 50, 'ex': 40, 'lv': 27, 'nm': 36, 'dt': 34,
+    'js': 24, 'jz': 21, 'rt': 4,
+    '1sm': 31, '2sm': 24,
+    '1rs': 22, '2rs': 25,
+    '1cr': 29, '2cr': 36,
+    'ed': 10, 'ne': 13, 'et': 10,
+    'job': 42, 'sl': 150,
+    'pv': 31, 'ec': 12, 'ct': 8,
+    'is': 66, 'jr': 52, 'lm': 5,
+    'ez': 48, 'dn': 12,
+    'os': 14, 'jl': 3, 'am': 9,
+    'ob': 1, 'jn': 4, 'mq': 7,
+    'na': 3, 'hc': 3, 'sf': 3,
+    'ag': 2, 'zc': 14, 'ml': 4,
+    'mt': 28, 'mc': 16, 'lc': 24,
+    'jo': 21, 'at': 28,
+    'rm': 16,
+    '1co': 16, '2co': 13,
+    'gl': 6, 'ef': 6, 'fp': 4,
+    'cl': 4,
+    '1ts': 5, '2ts': 3,
+    '1tm': 6, '2tm': 4,
+    'tt': 3, 'fm': 1,
+    'hb': 13, 'tg': 5,
+    '1pe': 5, '2pe': 3,
+    '1jo': 5, '2jo': 1, '3jo': 1,
+    'jd': 1,
+    'ap': 22
+};
+
+const mapaLivros = {
+    gn: "Gênesis",
+    ex: "Êxodo",
+    lv: "Levítico",
+    nm: "Números",
+    dt: "Deuteronômio",
+    js: "Josué",
+    jz: "Juízes",
+    rt: "Rute",
+    "1sm": "1 Samuel",
+    "2sm": "2 Samuel",
+    "1rs": "1 Reis",
+    "2rs": "2 Reis",
+    "1cr": "1 Crônicas",
+    "2cr": "2 Crônicas",
+    ed: "Esdras",
+    ne: "Neemias",
+    et: "Ester",
+    job: "Jó",
+    sl: "Salmos",
+    pv: "Provérbios",
+    ec: "Eclesiastes",
+    ct: "Cânticos",
+    is: "Isaías",
+    jr: "Jeremias",
+    lm: "Lamentações de Jeremias",
+    ez: "Ezequiel",
+    dn: "Daniel",
+    os: "Oséias",
+    jl: "Joel",
+    am: "Amós",
+    ob: "Obadias",
+    jn: "Jonas",
+    mq: "Miquéias",
+    na: "Naum",
+    hc: "Habacuque",
+    sf: "Sofonias",
+    ag: "Ageu",
+    zc: "Zacarias",
+    ml: "Malaquias",
+    mt: "Mateus",
+    mc: "Marcos",
+    lc: "Lucas",
+    jo: "João",
+    at: "Atos",
+    rm: "Romanos",
+    "1co": "1 Coríntios",
+    "2co": "2 Coríntios",
+    gl: "Gálatas",
+    ef: "Efésios",
+    fp: "Filipenses",
+    cl: "Colossenses",
+    "1ts": "1 Tessalonicenses",
+    "2ts": "2 Tessalonicenses",
+    "1tm": "1 Timóteo",
+    "2tm": "2 Timóteo",
+    tt: "Tito",
+    fm: "Filemom",
+    hb: "Hebreus",
+    tg: "Tiago",
+    "1pe": "1 Pedro",
+    "2pe": "2 Pedro",
+    "1jo": "1 João",
+    "2jo": "2 João",
+    "3jo": "3 João",
+    jd: "Judas",
+    ap: "Apocalipse"
+};
+
+let livroAtual = '';
+let biblia = [];
+
+async function carregarBiblia() {
+
+    try {
+
+        const response = await fetch('./biblia.json');
+
+        biblia = await response.json();
+
+        console.log('Bíblia carregada com sucesso');
+
+    } catch (error) {
+
+        console.error('Erro ao carregar biblia.json', error);
+    }
+}
+
+carregarBiblia();
+
+function abrirLivro(id, nome) {
+
+    livroAtual = id;
+
+    document.getElementById('bookTitle').innerText = nome;
+
+    const select = document.getElementById('chapterSelect');
+
+    select.innerHTML = '';
+
+    const maxCaps = totalCapitulos[id] || 1;
+
+    for (let i = 1; i <= maxCaps; i++) {
+
+        select.innerHTML += `
+            <option value="${i}">
+                Capítulo ${i}
+            </option>
+        `;
+    }
+
+    new bootstrap.Modal(
+        document.getElementById('bibliaModal')
+    ).show();
+
+    carregarConteudo();
+}
+
+function carregarConteudo() {
+
+    const chapter =
+        parseInt(document.getElementById('chapterSelect').value);
+
+    const container =
+        document.getElementById('chapterContent');
+
+    container.innerHTML = `
+        <div class="text-center p-4">
+            Carregando versículos...
+        </div>
+    `;
+
+    try {
+
+        const nomeLivro = mapaLivros[livroAtual];
+
+        const livro = biblia.find(
+            l => l.name === nomeLivro
+        );
+
+        if (!livro) {
+
+            container.innerHTML = `
+                <div style="color:#ffb3b3;">
+                    Livro não encontrado.
+                </div>
+            `;
+
+            return;
+        }
+
+        const capitulo =
+            livro.chapters[chapter - 1];
+
+        if (!capitulo) {
+
+            container.innerHTML = `
+                <div style="color:#ffb3b3;">
+                    Capítulo não encontrado.
+                </div>
+            `;
+
+            return;
+        }
+
+        let html = '';
+
+        capitulo.forEach((versiculo, index) => {
+
+            let textoVersiculo = versiculo;
+
+const livrosEvangelho = ['mt', 'mc', 'lc', 'jo', 'ap'];
+
+if (livrosEvangelho.includes(livroAtual)) {
+
+    textoVersiculo = `
+        <span style="color:#ff4d4d;">
+            ${versiculo}
+        </span>
+    `;
+}
+
+html += `
+    <p style="margin-bottom:12px;">
+        <strong>${index + 1}</strong>
+        ${textoVersiculo}
+    </p>
+`;
+        });
+
+        container.innerHTML = html;
+
+    } catch (error) {
+
+        console.error(error);
+
+        container.innerHTML = `
+            <div style="color:#ffb3b3;">
+                Erro ao carregar versículos.
+            </div>
+        `;
+    }
+}
+
+</script>
+</html>

@@ -1,0 +1,83 @@
+/* Variáveis de Cor */
+:root {
+    --bg-dark: #0B0B0B;
+    --card-bg: #151515;
+    --gold: #C8A96B;
+    --white-soft: #F5F5F5;
+    --gray-text: #A0A0A0;
+}
+
+body {
+    background-color: var(--bg-dark);
+    color: var(--white-soft);
+    font-family: 'Inter', sans-serif;
+    margin: 0;
+}
+
+/* Navbar */
+.navbar {
+    background: rgba(11, 11, 11, 0.95);
+    border-bottom: 1px solid var(--gold);
+    padding: 1.5rem 0;
+}
+
+.logo-yahwew {
+    color: var(--gold);
+    font-weight: 800;
+    font-size: 1.8rem;
+    letter-spacing: 3px;
+    text-decoration: none;
+}
+
+/* Hero Section */
+.hero {
+    padding: 100px 0;
+    text-align: center;
+    background: radial-gradient(circle at center, #1a1a1a 0%, #0b0b0b 100%);
+}
+
+.hero h1 {
+    font-size: 4rem;
+    font-weight: 700;
+    color: var(--white-soft);
+}
+
+.hero p {
+    color: var(--gold);
+    font-style: italic;
+    font-size: 1.2rem;
+}
+
+/* Botões */
+.btn-gold {
+    background-color: var(--gold);
+    color: var(--bg-dark);
+    font-weight: bold;
+    border: none;
+    padding: 12px 30px;
+    transition: 0.3s;
+}
+
+.btn-gold:hover {
+    background-color: #b0915a;
+    transform: translateY(-2px);
+}
+
+/* Cards */
+.card-feature {
+    background: var(--card-bg);
+    border: 1px solid #222;
+    border-radius: 12px;
+    padding: 30px;
+    transition: 0.3s;
+}
+
+.card-feature:hover {
+    border-color: var(--gold);
+}
+
+.card-icon {
+    font-size: 2.5rem;
+    color: var(--gold);
+    margin-bottom: 15px;
+}

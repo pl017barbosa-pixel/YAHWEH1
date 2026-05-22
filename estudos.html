@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="pt-pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estudos Bíblicos | YAHWEH</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-dark: #0B0B0B;
+            --card-bg: #131313;
+            --card-bg-hover: #1A1A1A;
+            --gold: #C8A96B;
+            --gold-hover: #B39256;
+            --white-biblical: #E5E5E5;
+            --gray-text: #888888;
+        }
+
+        body { background-color: var(--bg-dark); color: var(--white-biblical); font-family: 'Playfair Display', serif; overflow-x: hidden; }
+        h1, h2, h3, .nav-link, .section-title { font-family: 'Cinzel', serif; letter-spacing: 2px; }
+
+       /* NAVBAR E LOGO */
+        .navbar {
+            background-color: var(--bg-dark);
+            border-bottom: 1px solid rgba(200, 169, 107, 0.15);
+            padding: 1.5rem 0;
+        }
+
+        .logo-img {
+            height: 75px; 
+            width: auto;
+            display: inline-block;
+            animation: heartbeat-slow 4s infinite ease-in-out;
+            transform-origin: center;
+        }
+
+        @keyframes heartbeat-slow {
+            0% { transform: scale(1); filter: drop-shadow(0 0 2px rgba(200, 169, 107, 0.1)); }
+            50% { transform: scale(1.05); filter: drop-shadow(0 0 8px rgba(200, 169, 107, 0.3)); }
+            100% { transform: scale(1); filter: drop-shadow(0 0 2px rgba(200, 169, 107, 0.1)); }
+        }
+
+        .nav-link {
+            color: var(--white-biblical) !important;
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-left: 30px;
+            letter-spacing: 2px;
+            display: inline-block;
+            position: relative;
+            transition: color 0.4s ease;
+        }
+
+        .nav-link:hover { color: var(--gold) !important; }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            transform: scaleX(0);
+            height: 1px;
+            bottom: -5px;
+            left: 0;
+            background-color: var(--gold);
+            transform-origin: bottom right;
+            transition: transform 0.4s ease-out;
+        }
+
+        .nav-link:hover::after { transform: scaleX(1); transform-origin: bottom left; }
+
+
+        .page-header { padding: 150px 0 80px 0; text-align: center; }
+        .page-title { font-size: 3.5rem; color: var(--gold); text-transform: uppercase; margin-bottom: 20px; }
+        
+        .card-custom { background: linear-gradient(145deg, var(--card-bg), #0f0f0f); border: 1px solid rgba(200, 169, 107, 0.12); padding: 40px; text-align: center; height: 100%; transition: all 0.4s ease; }
+        .card-custom:hover { border-color: var(--gold); background: var(--card-bg-hover); transform: translateY(-8px); }
+        .card-title { color: var(--gold); font-size: 1.4rem; margin-bottom: 20px; text-transform: uppercase; }
+        .card-text { color: #C0C0C0; line-height: 1.7; margin-bottom: 25px; }
+
+        .btn-yahweh-outline { border: 1px solid var(--gold); color: var(--gold) !important; padding: 12px 30px; text-transform: uppercase; font-family: 'Cinzel', serif; background: transparent; transition: 0.3s; }
+        .btn-yahweh-outline:hover { background-color: var(--gold); color: #000 !important; }
+
+        footer { padding: 80px 0 40px 0; border-top: 1px solid rgba(200, 169, 107, 0.2); background-color: #080808; font-family: 'Cinzel', serif; }
+        .footer-brand { font-size: 1.5rem; color: var(--gold); letter-spacing: 4px; margin-bottom: 1rem; display: block; }
+        .footer-heading { color: var(--gold); font-size: 0.9rem; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 20px; }
+        .footer-link { color: var(--gray-text); text-decoration: none; display: block; margin-bottom: 10px; transition: 0.3s; font-size: 0.9rem; }
+        .footer-link:hover { color: var(--gold); }
+        .copyright { color: #444; font-size: 0.75rem; margin-top: 40px; letter-spacing: 1px; }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg">
+        <div class="container">
+            <a class="navbar-brand" href="index.html"><img src="img/Logo.png" alt="YAHWEH Logo" class="logo-img"></a>
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon" style="filter: invert(1);"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <div class="navbar-nav ms-auto align-items-center">
+                    <a class="nav-link" href="index.html">Índice</a>
+                    <a class="nav-link" href="biblia.html">Bíblia Sagrada</a>
+                    <a class="nav-link" href="ia.html">Dúvidas e respostas</a>
+                    <a class="nav-link" href="estudos.html">Estudos bíblicos</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <section class="page-header">
+        <h1 class="page-title">Estudos Bíblicos</h1>
+        <p class="text-secondary" style="font-style: italic;">Aprofunda o teu entendimento nas verdades eternas.</p>
+    </section>
+
+   <div class="container pb-5">
+    <div class="row g-4">
+        <div class="col-md-4"><div class="card-custom"><h3 class="card-title">Quem é Jesus?</h3><a href="#" class="btn btn-yahweh-outline">Acessar</a></div></div>
+        <div class="col-md-4"><div class="card-custom"><h3 class="card-title">Quem é Deus?</h3><a href="#" class="btn btn-yahweh-outline">Acessar</a></div></div>
+        <div class="col-md-4"><div class="card-custom"><h3 class="card-title">História dos 12 Discípulos</h3><a href="#" class="btn btn-yahweh-outline">Acessar</a></div></div>
+        <div class="col-md-4"><div class="card-custom"><h3 class="card-title">Espírito Santo</h3><a href="#" class="btn btn-yahweh-outline">Acessar</a></div></div>
+        <div class="col-md-4"><div class="card-custom"><h3 class="card-title">10 Mandamentos</h3><a href="#" class="btn btn-yahweh-outline">Acessar</a></div></div>
+        <div class="col-md-4"><div class="card-custom"><h3 class="card-title">Quiz Bíblico</h3><a href="#" class="btn btn-yahweh-outline">Acessar</a></div></div>
+        <div class="col-md-4"><div class="card-custom"><h3 class="card-title">Plano de Leitura</h3><a href="#" class="btn btn-yahweh-outline">Acessar</a></div></div>
+        <div class="col-md-4"><div class="card-custom"><h3 class="card-title">Estudo para Casais</h3><a href="#" class="btn btn-yahweh-outline">Acessar</a></div></div>
+        <div class="col-md-4"><div class="card-custom"><h3 class="card-title">Estudo para Jovens</h3><a href="#" class="btn btn-yahweh-outline">Acessar</a></div></div>
+        <div class="col-md-4"><div class="card-custom"><h3 class="card-title">A Oração</h3><a href="#" class="btn btn-yahweh-outline">Acessar</a></div></div>
+        <div class="col-md-4"><div class="card-custom"><h3 class="card-title">A Palavra</h3><a href="#" class="btn btn-yahweh-outline">Acessar</a></div></div>
+        <div class="col-md-4"><div class="card-custom"><h3 class="card-title">A Criação</h3><a href="#" class="btn btn-yahweh-outline">Acessar</a></div></div>
+        <div class="col-md-4"><div class="card-custom"><h3 class="card-title">O Chamado do Cristão</h3><a href="#" class="btn btn-yahweh-outline">Acessar</a></div></div>
+        <div class="col-md-4"><div class="card-custom"><h3 class="card-title">O que é a Bíblia</h3><a href="#" class="btn btn-yahweh-outline">Acessar</a></div></div>
+        <div class="col-md-4"><div class="card-custom"><h3 class="card-title">Mulher na Bíblia</h3><a href="#" class="btn btn-yahweh-outline">Acessar</a></div></div>
+        <div class="col-md-4"><div class="card-custom"><h3 class="card-title">Homem na Bíblia</h3><a href="#" class="btn btn-yahweh-outline">Acessar</a></div></div>
+        <div class="col-md-4"><div class="card-custom"><h3 class="card-title">Estudo para Família</h3><a href="#" class="btn btn-yahweh-outline">Acessar</a></div></div>
+        <div class="col-md-4"><div class="card-custom"><h3 class="card-title">O Perdão</h3><a href="#" class="btn btn-yahweh-outline">Acessar</a></div></div>
+        <div class="col-md-4"><div class="card-custom"><h3 class="card-title">O Pecado</h3><a href="#" class="btn btn-yahweh-outline">Acessar</a></div></div>
+        <div class="col-md-4"><div class="card-custom"><h3 class="card-title">Informação Bíblica</h3><a href="#" class="btn btn-yahweh-outline">Acessar</a></div></div>
+        <div class="col-md-4"><div class="card-custom"><h3 class="card-title">Temas para Cultos</h3><a href="#" class="btn btn-yahweh-outline">Acessar</a></div></div>
+    </div>
+</div>
+
+    <footer>
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="d-flex align-items-center mb-3">
+                        <img src="img/Logo.png" alt="YAHWEH Logo" style="height: 40px; width: auto; margin-right: 15px;">
+                        <span class="footer-brand" style="margin-bottom: 0;">YAHWEH</span>
+                    </div>
+                    <p style="color:var(--gray-text); font-size: 0.85rem;">Aprofunda-te na Palavra com as nossas ferramentas digitais de estudo bíblico.</p>
+                </div>
+                <div class="col-md-4">
+                    <h4 class="footer-heading">Navegação</h4>
+                    <a href="index.html" class="footer-link">Início</a>
+                    <a href="biblia.html" class="footer-link">Bíblia Sagrada</a>
+                    <a href="ia.html" class="footer-link">Dúvidas e respostas</a>
+                    <a href="estudos.html" class="footer-link">Estudos bíblicos</a>
+                </div>
+                <div class="col-md-4">
+                    <h4 class="footer-heading">Sobre</h4>
+                    <p style="color:var(--gray-text); font-size: 0.85rem;">Compromisso com a verdade e o estudo aprofundado das Escrituras Sagradas.</p>
+                </div>
+            </div>
+            <div class="text-center copyright">
+                &copy; 2026 YAHWEH - AD MAIOREM DEI GLORIAM
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
