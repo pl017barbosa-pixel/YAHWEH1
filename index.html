@@ -7,7 +7,7 @@
     
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
-    
+     <link rel="icon" type="image/png" href="img/Logo.png">
     <style>
         :root {
             --bg-dark: #0B0B0B;
@@ -182,6 +182,118 @@
         .footer-link { color: var(--gray-text); text-decoration: none; display: block; margin-bottom: 10px; transition: 0.3s; font-size: 0.9rem; }
         .footer-link:hover { color: var(--gold); }
         .copyright { color: #444; font-size: 0.75rem; margin-top: 40px; letter-spacing: 1px; }
+
+        /* =========================================
+   RESPONSIVIDADE MOBILE
+========================================= */
+
+@media (max-width: 768px) {
+
+    .navbar {
+        padding: 1rem 0;
+    }
+
+    .logo-img {
+        height: 55px;
+    }
+
+    .nav-link {
+        margin-left: 0;
+        margin-top: 15px;
+        font-size: 1rem;
+        text-align: center;
+    }
+
+    .hero-section {
+        padding: 120px 20px 60px 20px;
+    }
+
+    .hero-title {
+        font-size: 3.2rem;
+        letter-spacing: 4px;
+        line-height: 1.1;
+    }
+
+    .hero-subtitle {
+        font-size: 1.1rem;
+        margin-bottom: 30px;
+        padding: 0 10px;
+    }
+
+    .btn-yahweh-gold,
+    .btn-yahweh-outline {
+        width: 100%;
+        margin-bottom: 15px;
+        padding: 14px 20px;
+        font-size: 0.9rem;
+    }
+
+    .hero-divider {
+        width: 90%;
+        margin: 40px auto;
+    }
+
+    .hero-sub-footer {
+        flex-direction: column;
+        gap: 25px;
+    }
+
+    .hero-stat-item:not(:last-child)::after {
+        display: none;
+    }
+
+    .section-title {
+        font-size: 1.7rem;
+    }
+
+    .section-subtitle {
+        font-size: 1rem;
+        padding: 0 15px;
+    }
+
+    .card-custom {
+        padding: 40px 25px;
+    }
+
+    .card-title {
+        font-size: 1.2rem;
+    }
+
+    .card-text {
+        font-size: 0.95rem;
+    }
+
+    .verse-section {
+        padding: 80px 20px;
+    }
+
+    .verse-text {
+        font-size: 1.4rem;
+        line-height: 1.6;
+    }
+
+    .verse-ref {
+        font-size: 1rem;
+    }
+
+    footer {
+        padding: 60px 20px 30px 20px;
+        text-align: center;
+    }
+
+    .footer-brand {
+        font-size: 1.2rem;
+    }
+
+    .footer-heading {
+        margin-top: 20px;
+    }
+
+    .copyright {
+        margin-top: 30px;
+        font-size: 0.7rem;
+    }
+}
     </style>
 </head>
 <body>
