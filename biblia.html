@@ -9,100 +9,180 @@
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
     <link rel="icon" type="image/png" href="img/Logo.png">
     <style>
-        :root {
-            --bg-dark: #0B0B0B;
-            --card-bg: #131313;
-            --card-bg-hover: #1A1A1A;
-            --gold: #C8A96B;
-            --gold-light: #F4E4BC;
-            --gold-dark: #8B6E3C;
-            --gold-hover: #B39256;
-            --white-biblical: #E5E5E5;
-            --gray-text: #888888;
-        }
+:root {
+    --bg-dark: #0B0B0B;
+    --card-bg: #131313;
+    --card-bg-hover: #1A1A1A;
+    --gold: #C8A96B;
+    --gold-light: #F4E4BC;
+    --gold-dark: #8B6E3C;
+    --gold-hover: #B39256;
+    --white-biblical: #E5E5E5;
+    --gray-text: #888888;
+}
 
-        body {
-            background-color: var(--bg-dark);
-            color: var(--white-biblical);
-            font-family: 'Playfair Display', serif; 
-            overflow-x: hidden;
-        }
+body {
+    background-color: var(--bg-dark);
+    color: var(--white-biblical);
+    font-family: 'Playfair Display', serif; 
+    overflow-x: hidden;
+}
 
-        h1, h2, h3, .nav-link, .section-title, .testamento-title {
-            font-family: 'Cinzel', serif;
-            letter-spacing: 2px;
-        }
+h1, h2, h3, .nav-link, .section-title, .testamento-title {
+    font-family: 'Cinzel', serif;
+    letter-spacing: 2px;
+}
 
-        /* NAVBAR E LOGO */
-        .navbar {
-            background-color: var(--bg-dark);
-            border-bottom: 1px solid rgba(200, 169, 107, 0.15);
-            padding: 1.5rem 0;
-        }
-
-        .logo-img {
-            height: 75px; 
-            width: auto;
-            display: inline-block;
-            animation: heartbeat-slow 4s infinite ease-in-out;
-            transform-origin: center;
-        }
-
-        @keyframes heartbeat-slow {
-            0% { transform: scale(1); filter: drop-shadow(0 0 2px rgba(200, 169, 107, 0.1)); }
-            50% { transform: scale(1.05); filter: drop-shadow(0 0 8px rgba(200, 169, 107, 0.3)); }
-            100% { transform: scale(1); filter: drop-shadow(0 0 2px rgba(200, 169, 107, 0.1)); }
-        }
-
-        .nav-link {
-            color: var(--white-biblical) !important;
-            font-size: 1.1rem;
-            font-weight: 700;
-            margin-left: 30px;
-            letter-spacing: 2px;
-            display: inline-block;
-            position: relative;
-            transition: color 0.4s ease;
-        }
-
-        .nav-link:hover { color: var(--gold) !important; }
-
-        .nav-link::after {
-            content: '';
-            position: absolute;
-            width: 100%;
-            transform: scaleX(0);
-            height: 1px;
-            bottom: -5px;
-            left: 0;
-            background-color: var(--gold);
-            transform-origin: bottom right;
-            transition: transform 0.4s ease-out;
-        }
-
-        .nav-link:hover::after { transform: scaleX(1); transform-origin: bottom left; }
-
-        /* ESTILOS DA PÁGINA BÍBLIA */
-        .biblia-header { padding: 150px 0 50px 0; text-align: center; }
-        .biblia-title { font-size: 3.5rem; color: var(--gold); text-transform: uppercase; }
-        .testamento-container { background: var(--card-bg); border: 1px solid rgba(200, 169, 107, 0.15); padding: 40px; height: 100%; }
-        .testamento-title { color: var(--gold); border-bottom: 1px solid var(--gold); padding-bottom: 15px; margin-bottom: 25px; text-align: center; }
-        
-        .book-list { list-style: none; padding: 0; columns: 2; column-gap: 40px; }
-        .book-link { color: #ccc; text-decoration: none; font-size: 1.2rem; transition: 0.3s; display: block; cursor: pointer; }
-        .book-link:hover { color: var(--gold); padding-left: 10px; }
-
-        footer { padding: 80px 0 40px 0; border-top: 1px solid rgba(200, 169, 107, 0.2); background-color: #080808; font-family: 'Cinzel', serif; }
-        .footer-brand { font-size: 1.5rem; color: var(--gold); letter-spacing: 4px; margin-bottom: 1rem; display: block; }
-        .footer-heading { color: var(--gold); font-size: 0.9rem; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 20px; }
-        .footer-link { color: var(--gray-text); text-decoration: none; display: block; margin-bottom: 10px; transition: 0.3s; font-size: 0.9rem; }
-        .footer-link:hover { color: var(--gold); }
-        .copyright { color: #444; font-size: 0.75rem; margin-top: 40px; letter-spacing: 1px; }
-
-        /* =========================
-   RESPONSIVIDADE MOBILE
+/* =========================
+   NAVBAR
 ========================= */
+.navbar {
+    background-color: var(--bg-dark);
+    border-bottom: 1px solid rgba(200, 169, 107, 0.15);
+    padding: 1.5rem 0;
+}
 
+.logo-img {
+    height: 75px; 
+    width: auto;
+    display: inline-block;
+    animation: heartbeat-slow 4s infinite ease-in-out;
+    transform-origin: center;
+}
+
+@keyframes heartbeat-slow {
+    0% { transform: scale(1); filter: drop-shadow(0 0 2px rgba(200, 169, 107, 0.1)); }
+    50% { transform: scale(1.05); filter: drop-shadow(0 0 8px rgba(200, 169, 107, 0.3)); }
+    100% { transform: scale(1); filter: drop-shadow(0 0 2px rgba(200, 169, 107, 0.1)); }
+}
+
+.nav-link {
+    color: var(--white-biblical) !important;
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-left: 30px;
+    letter-spacing: 2px;
+    display: inline-block;
+    position: relative;
+    transition: color 0.4s ease;
+}
+
+.nav-link:hover { color: var(--gold) !important; }
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 1px;
+    bottom: -5px;
+    left: 0;
+    background-color: var(--gold);
+    transform-origin: bottom right;
+    transition: transform 0.4s ease-out;
+}
+
+.nav-link:hover::after { transform: scaleX(1); transform-origin: bottom left; }
+
+/* =========================
+   BÍBLIA PAGE
+========================= */
+.biblia-header { 
+    padding: 150px 0 50px 0; 
+    text-align: center; 
+}
+
+.biblia-title { 
+    font-size: 3.5rem; 
+    color: var(--gold); 
+    text-transform: uppercase; 
+}
+
+.testamento-container { 
+    background: var(--card-bg); 
+    border: 1px solid rgba(200, 169, 107, 0.15); 
+    padding: 40px; 
+    height: 100%; 
+}
+
+.testamento-title { 
+    color: var(--gold); 
+    border-bottom: 1px solid var(--gold); 
+    padding-bottom: 15px; 
+    margin-bottom: 25px; 
+    text-align: center; 
+}
+
+.book-list { 
+    list-style: none; 
+    padding: 0; 
+    columns: 2; 
+    column-gap: 40px; 
+}
+
+.book-link { 
+    color: #ccc; 
+    text-decoration: none; 
+    font-size: 1.2rem; 
+    transition: 0.3s; 
+    display: block; 
+    cursor: pointer; 
+}
+
+.book-link:hover { 
+    color: var(--gold); 
+    padding-left: 10px; 
+}
+
+/* =========================
+   FOOTER (CORRIGIDO)
+========================= */
+footer { 
+    padding: 80px 0 40px 0; 
+    border-top: 1px solid rgba(200, 169, 107, 0.2); 
+    background-color: #080808;
+    font-family: 'Cinzel', serif; 
+}
+
+.footer-brand { 
+    font-size: 1.5rem; 
+    color: var(--gold); 
+    letter-spacing: 4px; 
+    margin-bottom: 1rem; 
+    display: block; 
+}
+
+.footer-heading { 
+    color: var(--gold); 
+    font-size: 0.9rem; 
+    text-transform: uppercase; 
+    letter-spacing: 2px; 
+    margin-bottom: 20px; 
+}
+
+.footer-link { 
+    color: var(--gray-text); 
+    text-decoration: none; 
+    display: block; 
+    margin-bottom: 10px; 
+    transition: 0.3s; 
+    font-size: 0.9rem; 
+}
+
+.footer-link:hover { 
+    color: var(--gold); 
+}
+
+.copyright { 
+    color: #444; 
+    font-size: 0.75rem; 
+    margin-top: 40px; 
+    letter-spacing: 1px; 
+}
+
+/* =========================
+   RESPONSIVIDADE MOBILE (CORRIGIDO)
+========================= */
 @media (max-width: 768px) {
 
     /* NAVBAR */
@@ -138,7 +218,7 @@
         line-height: 1.2;
     }
 
-    /* TESTAMENTOS */
+    /* TESTAMENTO */
     .testamento-container {
         padding: 25px;
     }
@@ -147,7 +227,7 @@
         font-size: 1.5rem;
     }
 
-    /* LISTA DE LIVROS */
+    /* BOOK LIST */
     .book-list {
         columns: 1;
         column-gap: 0;
@@ -158,40 +238,36 @@
         padding: 6px 0;
     }
 
-    /* MODAL */
-    .modal-dialog {
-        margin: 10px;
-    }
-
-    .modal-body {
-        font-size: 1rem !important;
-        line-height: 1.7 !important;
-    }
-
-    #chapterSelect {
-        width: 120px;
-        font-size: 0.9rem;
-    }
-
-    /* FOOTER */
+    /* FOOTER (CORRIGIDO MOBILE) */
     footer {
+        padding: 60px 20px 30px 20px;
         text-align: center;
     }
 
-    .footer-brand {
-        font-size: 1.2rem;
+    footer .row {
+        text-align: center;
     }
 
-    .footer-heading {
-        margin-top: 20px;
+    footer .col-md-4 {
+        margin-bottom: 25px;
     }
 
     footer .d-flex {
         justify-content: center;
+        flex-direction: column;
+        gap: 10px;
     }
 
+    .footer-heading {
+        margin-top: 15px;
+    }
+
+    .footer-link {
+        display: block;
+        margin-bottom: 8px;
+    }
 }
-    </style>
+</style>
 </head>
 <body>
 
@@ -260,32 +336,35 @@
 </div>
 
     <footer>
-        <div class="container">
-            <div class="row g-4">
-                <div class="col-md-4">
-                    <div class="d-flex align-items-center mb-3">
-                        <img src="img/Logo.png" alt="YAHWEH Logo" style="height: 40px; width: auto; margin-right: 15px;">
-                        <span class="footer-brand" style="margin-bottom: 0;">YAHWEH</span>
-                    </div>
-                    <p style="color:var(--gray-text); font-size: 0.85rem;">Aprofunda-te na Palavra com as nossas ferramentas digitais de estudo bíblico.</p>
+    <div class="container">
+        <div class="row g-4">
+            <div class="col-md-4">
+                <div class="d-flex align-items-center mb-3">
+                    <img src="img/Logo.png" alt="YAHWEH Logo" style="height: 40px; width: auto; margin-right: 15px;">
+                    <span class="footer-brand" style="margin-bottom: 0;">YAHWEH</span>
                 </div>
-                <div class="col-md-4">
-                    <h4 class="footer-heading">Navegação</h4>
-                    <a href="index.html" class="footer-link">Início</a>
-                    <a href="biblia.html" class="footer-link">Bíblia Sagrada</a>
-                    <a href="ia.html" class="footer-link">Dúvidas e respostas</a>
-                    <a href="estudos.html" class="footer-link">Estudos bíblicos</a>
-                </div>
-                <div class="col-md-4">
-                    <h4 class="footer-heading">Sobre</h4>
-                    <p style="color:var(--gray-text); font-size: 0.85rem;">Compromisso com a verdade e o estudo aprofundado das Escrituras Sagradas.</p>
-                </div>
+                <p style="color:var(--gray-text); font-size: 0.85rem;">Aprofunda-te na Palavra com as nossas ferramentas digitais de estudo bíblico.</p>
             </div>
-            <div class="text-center copyright">
-                &copy; 2026 YAHWEH - AD MAIOREM DEI GLORIAM
+            
+            <div class="col-md-4">
+                <h4 class="footer-heading">Navegação</h4>
+                <a href="index.html" class="footer-link">Início</a>
+                <a href="biblia.html" class="footer-link">Bíblia Sagrada</a>
+                <a href="ia.html" class="footer-link">Dúvidas e respostas</a>
+                <a href="estudos.html" class="footer-link">Estudos bíblicos</a>
+            </div>
+
+            <div class="col-md-4">
+                <h4 class="footer-heading">Sobre</h4>
+                <p style="color:var(--gray-text); font-size: 0.85rem;">Compromisso com a verdade e o estudo aprofundado das Escrituras Sagradas.</p>
             </div>
         </div>
-    </footer>
+        
+        <div class="text-center copyright">
+            &copy; 2026 YAHWEH - AD MAIOREM DEI GLORIAM
+        </div>
+    </div>
+</footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
