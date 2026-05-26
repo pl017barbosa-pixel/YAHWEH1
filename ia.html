@@ -7,7 +7,7 @@
     
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
-     <link rel="icon" type="image/png" href="img/Logo.png">
+    <link rel="icon" type="image/png" href="img/Logo.png">
     <style>
         :root {
             --bg-dark: #0B0B0B;
@@ -21,7 +21,7 @@
         body { background-color: var(--bg-dark); color: var(--white-biblical); font-family: 'Playfair Display', serif; }
         h1, .nav-link { font-family: 'Cinzel', serif; letter-spacing: 2px; }
 
-        /* NAVBAR E LOGO */
+        /* NAVBAR */
         .navbar { background-color: var(--bg-dark); border-bottom: 1px solid rgba(200, 169, 107, 0.15); padding: 1.5rem 0; }
         .logo-img { height: 75px; width: auto; display: inline-block; animation: heartbeat-slow 4s infinite ease-in-out; transform-origin: center; }
 
@@ -31,69 +31,48 @@
             100% { transform: scale(1); filter: drop-shadow(0 0 2px rgba(200, 169, 107, 0.1)); }
         }
 
-        .nav-link { color: var(--white-biblical) !important; font-size: 1.1rem; font-weight: 700; margin-left: 30px; letter-spacing: 2px; display: inline-block; position: relative; transition: color 0.4s ease; }
+        .nav-link { color: var(--white-biblical) !important; font-size: 1.1rem; font-weight: 700; margin-left: 30px; position: relative; transition: color 0.4s ease; }
         .nav-link:hover { color: var(--gold) !important; }
         .nav-link::after { content: ''; position: absolute; width: 100%; transform: scaleX(0); height: 1px; bottom: -5px; left: 0; background-color: var(--gold); transform-origin: bottom right; transition: transform 0.4s ease-out; }
         .nav-link:hover::after { transform: scaleX(1); transform-origin: bottom left; }
 
         /* CTA */
-        .cta-container {
-            margin-top: 50px;
-            padding: 40px;
-            background: linear-gradient(145deg, #151515, #0a0a0a);
-            border: 2px solid var(--gold);
-            border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.6), inset 0 0 15px rgba(200, 169, 107, 0.1);
-            display: inline-block;
-            transition: transform 0.3s ease;
-        }
-
-        .cta-text {
-            color: var(--gold);
-            font-size: 1.3rem;
-            font-family: 'Cinzel', serif;
-            margin-top: 20px;
-            letter-spacing: 1px;
-            font-weight: 700;
-        }
+        .cta-container { margin-top: 50px; padding: 40px; background: linear-gradient(145deg, #151515, #0a0a0a); border: 2px solid var(--gold); border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.6), inset 0 0 15px rgba(200, 169, 107, 0.1); display: inline-block; transition: transform 0.3s ease; }
+        .cta-text { color: var(--gold); font-size: 1.3rem; font-family: 'Cinzel', serif; margin-top: 20px; letter-spacing: 1px; font-weight: 700; }
 
         footer { padding: 80px 0 40px 0; border-top: 1px solid rgba(200, 169, 107, 0.2); background-color: #080808; font-family: 'Cinzel', serif; }
-        .footer-brand { font-size: 1.5rem; color: var(--gold); letter-spacing: 4px; margin-bottom: 1rem; display: block; }
+        footer .col-md-4 { text-align: left; }
+        .footer-brand { font-size: 1.5rem; color: var(--gold); letter-spacing: 4px; }
         .footer-heading { color: var(--gold); font-size: 0.9rem; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 20px; }
         .footer-link { color: var(--gray-text); text-decoration: none; display: block; margin-bottom: 10px; transition: 0.3s; font-size: 0.9rem; }
         .footer-link:hover { color: var(--gold); }
         .copyright { color: #444; font-size: 0.75rem; margin-top: 40px; letter-spacing: 1px; }
 
-        /* 🔧 SÓ ISSO FOI ADICIONADO */
-        .navbar-toggler-icon {
-            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='white' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+        /* HAMBURGUER */
+        .navbar-toggler-icon { background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='white' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e"); }
+
+        /* MOBILE AJUSTADO */
+        @media (max-width: 768px) {
+            .navbar { padding: 1rem 0; }
+            .logo-img { height: 55px; }
+            .nav-link { margin: 10px 0; font-size: 1rem; }
+            .navbar-collapse { background-color: #0B0B0B; padding: 20px; margin-top: 10px; text-align: center; }
+            .cta-container { display: flex; flex-direction: column; align-items: center; margin-left: auto; margin-right: auto; }
+            footer { text-align: center; }
+            footer .col-md-4 { text-align: center; }
         }
-        .navbar-toggler-icon {
-    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='white' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
-}
     </style>
 </head>
-
 <body>
 
     <nav class="navbar navbar-expand-lg">
         <div class="container">
-
             <a class="navbar-brand" href="index.html">
                 <img src="img/Logo.png" alt="YAHWEH Logo" class="logo-img">
             </a>
-
-            <!-- 🔧 BOTÃO HAMBURGUER ADICIONADO (ÚNICA MUDANÇA REAL) -->
-            <button class="navbar-toggler border-0" type="button"
-                data-bs-toggle="collapse"
-                data-bs-target="#navbarNav"
-                aria-controls="navbarNav"
-                aria-expanded="false"
-                aria-label="Menu">
-
-           <span class="navbar-toggler-icon"></span>
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
             </button>
-
             <div class="collapse navbar-collapse" id="navbarNav">
                 <div class="navbar-nav ms-auto align-items-center">
                     <a class="nav-link" href="index.html">Índice</a>
@@ -102,22 +81,19 @@
                     <a class="nav-link" href="estudos.html">Estudos bíblicos</a>
                 </div>
             </div>
-
         </div>
     </nav>
 
     <div class="container text-center" style="margin-top: 100px; color: var(--white-biblical);">
         <h1 style="color: var(--gold); margin-bottom: 20px;">O QUE É O CHATGP CRENTE?</h1>
-
         <p style="max-width: 600px; margin: 0 auto 30px auto; font-size: 1.2rem; line-height: 1.6;">
             O CHATGP CRENTE é o seu conselheiro digital, fundamentado nas Escrituras Sagradas. 
             Ele foi desenhado para auxiliar no seu estudo bíblico, esclarecer dúvidas teológicas, 
             ajudar na criação de sermões e oferecer conforto e orientação cristã a qualquer momento.
         </p>
-        
-        <div class="cta-container">
+        <div class="cta-container" onclick="openChat()">
             <img src="img/chat1.png" alt="Guia" style="display: block; margin: 0 auto; max-width: 180px; height: auto; filter: drop-shadow(0 0 10px rgba(200, 169, 107, 0.4));">
-            <p class="cta-text">INICIE A SUA CONVERSA CLICANDO NO ÍCONE AO LADO.</p>
+            <p class="cta-text">CLIQUE AQUI E INICIE SUA CONVERSA.</p>
         </div>
     </div>
 
@@ -125,13 +101,12 @@
         <div class="container">
             <div class="row g-4">
                 <div class="col-md-4">
-                    <div class="d-flex align-items-center mb-3">
+                    <div class="d-flex align-items-center mb-3 justify-content-center justify-content-md-start">
                         <img src="img/Logo.png" alt="YAHWEH Logo" style="height: 40px; width: auto; margin-right: 15px;">
                         <span class="footer-brand" style="margin-bottom: 0;">YAHWEH</span>
                     </div>
                     <p style="color:var(--gray-text); font-size: 0.85rem;">Aprofunda-te na Palavra com as nossas ferramentas digitais de estudo bíblico.</p>
                 </div>
-
                 <div class="col-md-4">
                     <h4 class="footer-heading">Navegação</h4>
                     <a href="index.html" class="footer-link">Início</a>
@@ -139,35 +114,25 @@
                     <a href="ia.html" class="footer-link">Dúvidas e respostas</a>
                     <a href="estudos.html" class="footer-link">Estudos bíblicos</a>
                 </div>
-
                 <div class="col-md-4">
                     <h4 class="footer-heading">Sobre</h4>
                     <p style="color:var(--gray-text); font-size: 0.85rem;">Compromisso com a verdade e o estudo aprofundado das Escrituras Sagradas.</p>
                 </div>
             </div>
-
-            <div class="text-center copyright">
-                &copy; 2026 YAHWEH - AD MAIOREM DEI GLORIAM
-            </div>
+            <div class="text-center copyright">&copy; 2026 YAHWEH - AD MAIOREM DEI GLORIAM</div>
         </div>
     </footer>
 
-    <script type="text/javascript">
-      (function(d, t) {
-          var v = d.createElement(t), s = d.getElementsByTagName(t)[0];
-          v.onload = function() {
-            window.voiceflow.chat.load({
-              verify: { projectID: '6a0d8c928ea288aed8936027' },
-              url: 'https://general-runtime.voiceflow.com'
-            });
-          }
-          v.src = "https://cdn.voiceflow.com/widget-next/bundle.mjs";
-          v.type = "text/javascript";
-          s.parentNode.insertBefore(v, s);
-      })(document, 'script');
-    </script>
-
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-
+    <script>
+        function openChat() {
+            if (window.voiceflow && window.voiceflow.chat) { window.voiceflow.chat.open(); }
+        }
+        (function(d, t) {
+            var v = d.createElement(t), s = d.getElementsByTagName(t)[0];
+            v.onload = function() { window.voiceflow.chat.load({ verify: { projectID: '6a0d8c928ea288aed8936027' }, url: 'https://general-runtime.voiceflow.com', voice: { url: "https://runtime-api.voiceflow.com" } }); }
+            v.src = "https://cdn.voiceflow.com/widget-next/bundle.mjs"; v.type = "text/javascript"; s.parentNode.insertBefore(v, s);
+        })(document, 'script');
+    </script>
 </body>
 </html>
