@@ -75,25 +75,155 @@ footer .col-md-4 { text-align: left; }
     </style>
 </head>
 <body>
+      <div class="modal fade" id="settingsModal" tabindex="-1">
 
-    <nav class="navbar navbar-expand-lg">
-        <div class="container">
-            <a class="navbar-brand" href="index.html">
-                <img src="img/Logo.png" alt="YAHWEH Logo" class="logo-img">
-            </a>
-            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <div class="navbar-nav ms-auto align-items-center">
-                    <a class="nav-link" href="index.html">Índice</a>
-                    <a class="nav-link" href="biblia.html">Bíblia Sagrada</a>
-                    <a class="nav-link" href="ia.html">Dúvidas e respostas</a>
-                    <a class="nav-link" href="estudos.html">Estudos bíblicos</a>
-                </div>
-            </div>
+  <div class="modal-dialog">
+
+    <div class="modal-content bg-dark text-white">
+
+      <div class="modal-header">
+
+        <h5 class="modal-title">
+          Configurações da Conta
+        </h5>
+
+        <button
+          type="button"
+          class="btn-close btn-close-white"
+          data-bs-dismiss="modal">
+        </button>
+
+      </div>
+
+      <div class="modal-body">
+
+        <label class="mb-2">
+          Nome
+        </label>
+
+        <input
+          type="text"
+          id="edit-name"
+          class="form-control mb-3">
+
+        <label class="mb-2">
+          Email
+        </label>
+
+        <input
+          type="text"
+          id="edit-email"
+          class="form-control mb-4"
+          disabled>
+
+        <button
+          class="btn btn-warning w-100"
+          id="save-settings">
+
+          Guardar Alterações
+
+        </button>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+
+  <!-- NAVBAR -->
+
+<nav class="navbar navbar-expand-lg">
+  <div class="container">
+
+    <a class="navbar-brand" href="index.html">
+      <img src="img/Logo.png" alt="YAHWEH Logo" class="logo-img">
+    </a>
+
+    <button class="navbar-toggler border-0"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarNav">
+
+      <span class="navbar-toggler-icon"
+            style="filter: invert(1);">
+      </span>
+
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarNav">
+
+      <div class="navbar-nav ms-auto align-items-center">
+
+        <a class="nav-link" href="index.html">Índice</a>
+        <a class="nav-link" href="biblia.html">Bíblia Sagrada</a>
+        <a class="nav-link" href="ia.html">Dúvidas e respostas</a>
+        <a class="nav-link" href="estudos.html">Estudos bíblicos</a>
+
+        <!-- LOGIN -->
+       <a class="nav-link" href="login.html" id="login-link">Login</a>
+
+        </a>
+
+        <!-- USER -->
+        <div class="dropdown d-none" id="user-menu">
+
+          <a class="nav-link dropdown-toggle d-flex align-items-center gap-2"
+             href="#"
+             role="button"
+             data-bs-toggle="dropdown">
+
+            <img id="user-photo"
+                 src=""
+                 style="width:32px;height:32px;border-radius:50%;">
+
+            <span id="user-name"></span>
+
+          </a>
+
+          <ul class="dropdown-menu dropdown-menu-end">
+
+            <li>
+
+              <a class="dropdown-item"
+                 href="#"
+                 id="open-settings"
+                 data-bs-toggle="modal"
+                 data-bs-target="#settingsModal">
+
+                 Configurações
+
+              </a>
+
+            </li>
+
+            <li>
+              <hr class="dropdown-divider">
+            </li>
+
+            <li>
+
+              <a class="dropdown-item text-danger"
+                 href="#"
+                 id="logout-btn">
+
+                 Sair
+
+              </a>
+
+            </li>
+
+          </ul>
+
         </div>
-    </nav>
+
+      </div>
+
+    </div>
+
+  </div>
+</nav>
 
     <div class="container text-center" style="margin-top: 100px; color: var(--white-biblical);">
         <h1 style="color: var(--gold); margin-bottom: 20px;">O QUE É O CHATGP CRENTE?</h1>
@@ -120,10 +250,17 @@ footer .col-md-4 { text-align: left; }
                 </div>
                 <div class="col-md-4">
                     <h4 class="footer-heading">Navegação</h4>
-                    <a href="index.html" class="footer-link">Início</a>
-                    <a href="biblia.html" class="footer-link">Bíblia Sagrada</a>
-                    <a href="ia.html" class="footer-link">Dúvidas e respostas</a>
-                    <a href="estudos.html" class="footer-link">Estudos bíblicos</a>
+                   <a href="index.html" class="footer-link">Início</a>
+                <a href="biblia.html" class="footer-link">Bíblia Sagrada</a>
+                <a href="ia.html" class="footer-link">Dúvidas e respostas</a>
+                <a href="estudos.html" class="footer-link">Estudos bíblicos</a>
+              <a href="login.html"
+   class="footer-link"
+   id="footer-login-link">
+
+    Faça seu login
+
+</a>
                 </div>
                 <div class="col-md-4">
                     <h4 class="footer-heading">Sobre</h4>
@@ -135,6 +272,8 @@ footer .col-md-4 { text-align: left; }
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+     <script type="module" src="auth.js"></script>
+     <div id="custom-toast"></div>
     <script>
        // Função para abrir o chat
 function openChat() {
