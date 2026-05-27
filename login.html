@@ -12,276 +12,443 @@
 
     <style>
 
-        :root {
-            --bg-dark: #0B0B0B;
-            --card-bg: #131313;
-            --card-bg-hover: #1A1A1A;
-            --gold: #C8A96B;
-            --gold-light: #F4E4BC;
-            --gold-dark: #8B6E3C;
-            --gold-hover: #B39256;
-            --white-biblical: #E5E5E5;
-            --gray-text: #888888;
-        }
+:root {
+    --bg-dark: #0B0B0B;
+    --card-bg: #131313;
+    --card-bg-hover: #1A1A1A;
+    --gold: #C8A96B;
+    --gold-light: #F4E4BC;
+    --gold-dark: #8B6E3C;
+    --gold-hover: #B39256;
+    --white-biblical: #E5E5E5;
+    --gray-text: #888888;
+}
 
-        body {
-            background-color: var(--bg-dark);
-            color: var(--white-biblical);
-            font-family: 'Playfair Display', serif;
-            overflow-x: hidden;
-        }
+body {
+    background-color: var(--bg-dark);
+    color: var(--white-biblical);
+    font-family: 'Playfair Display', serif;
+    overflow-x: hidden;
+}
 
-        h1, h2, h3, .nav-link {
-            font-family: 'Cinzel', serif;
-            letter-spacing: 2px;
-        }
+h1, h2, h3, .nav-link {
+    font-family: 'Cinzel', serif;
+    letter-spacing: 2px;
+}
 
-        /* NAVBAR */
+/* NAVBAR */
 
-        .navbar {
-            background-color: var(--bg-dark);
-            border-bottom: 1px solid rgba(200, 169, 107, 0.15);
-            padding: 1.5rem 0;
-        }
+.navbar {
+    background-color: var(--bg-dark);
+    border-bottom: 1px solid rgba(200, 169, 107, 0.15);
+    padding: 1.5rem 0;
+}
 
-        .logo-img {
-            height: 75px;
-            width: auto;
-            display: inline-block;
-            animation: heartbeat-slow 4s infinite ease-in-out;
-        }
+.logo-img {
+    height: 75px;
+    width: auto;
+    display: inline-block;
+    animation: heartbeat-slow 4s infinite ease-in-out;
+}
 
-        @keyframes heartbeat-slow {
-            0% {
-                transform: scale(1);
-                filter: drop-shadow(0 0 2px rgba(200,169,107,0.1));
-            }
+@keyframes heartbeat-slow {
 
-            50% {
-                transform: scale(1.05);
-                filter: drop-shadow(0 0 8px rgba(200,169,107,0.3));
-            }
+    0% {
+        transform: scale(1);
+        filter: drop-shadow(0 0 2px rgba(200,169,107,0.1));
+    }
 
-            100% {
-                transform: scale(1);
-                filter: drop-shadow(0 0 2px rgba(200,169,107,0.1));
-            }
-        }
+    50% {
+        transform: scale(1.05);
+        filter: drop-shadow(0 0 8px rgba(200,169,107,0.3));
+    }
 
-        .nav-link {
-            color: var(--white-biblical) !important;
-            font-size: 1.1rem;
-            font-weight: 700;
-            margin-left: 30px;
-            position: relative;
-            transition: 0.4s;
-        }
+    100% {
+        transform: scale(1);
+        filter: drop-shadow(0 0 2px rgba(200,169,107,0.1));
+    }
+}
 
-        .nav-link:hover {
-            color: var(--gold) !important;
-        }
+.nav-link {
+    color: var(--white-biblical) !important;
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-left: 30px;
+    position: relative;
+    transition: 0.4s;
+}
 
-        .nav-link::after {
-            content: '';
-            position: absolute;
-            width: 100%;
-            transform: scaleX(0);
-            height: 1px;
-            bottom: -5px;
-            left: 0;
-            background-color: var(--gold);
-            transform-origin: bottom right;
-            transition: transform 0.4s ease-out;
-        }
+.nav-link:hover {
+    color: var(--gold) !important;
+}
 
-        .nav-link:hover::after {
-            transform: scaleX(1);
-            transform-origin: bottom left;
-        }
+.nav-link::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 1px;
+    bottom: -5px;
+    left: 0;
+    background-color: var(--gold);
+    transform-origin: bottom right;
+    transition: transform 0.4s ease-out;
+}
 
-        /* LOGIN SECTION */
+.nav-link:hover::after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+}
 
-        .login-section {
-            min-height: 85vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 120px 20px;
-        }
+/* LOGIN SECTION */
 
-        .login-card {
-            background: linear-gradient(145deg, var(--card-bg), #0f0f0f);
-            border: 1px solid rgba(200, 169, 107, 0.15);
-            padding: 60px 45px;
-            width: 100%;
-            max-width: 520px;
-            text-align: center;
-            transition: 0.4s;
-        }
+.login-section {
+    min-height: 85vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 120px 20px;
+}
 
-        .login-card:hover {
-            border-color: var(--gold);
-            transform: translateY(-5px);
-        }
+.login-card {
+    background: linear-gradient(145deg, var(--card-bg), #0f0f0f);
+    border: 1px solid rgba(200, 169, 107, 0.15);
+    padding: 60px 45px;
+    width: 100%;
+    max-width: 520px;
+    text-align: center;
+    transition: 0.4s;
+}
 
-        .login-title {
-            color: var(--gold);
-            font-size: 2.3rem;
-            margin-bottom: 15px;
-            text-transform: uppercase;
-        }
+.login-card:hover {
+    border-color: var(--gold);
+    transform: translateY(-5px);
+}
 
-        .login-subtitle {
-            color: #BDBDBD;
-            font-style: italic;
-            margin-bottom: 45px;
-            line-height: 1.8;
-        }
+.login-title {
+    color: var(--gold);
+    font-size: 2.3rem;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+}
 
-        .google-btn {
-            background-color: white;
-            color: #111;
-            border: none;
-            padding: 16px 25px;
-            width: 100%;
-            font-weight: 700;
-            font-size: 1rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 15px;
-            transition: 0.3s;
-        }
+.login-subtitle {
+    color: #BDBDBD;
+    font-style: italic;
+    margin-bottom: 45px;
+    line-height: 1.8;
+}
 
-        .google-btn:hover {
-            transform: translateY(-3px);
-            background-color: #f3f3f3;
-        }
+.google-btn {
+    background-color: white;
+    color: #111;
+    border: none;
+    padding: 16px 25px;
+    width: 100%;
+    font-weight: 700;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    transition: 0.3s;
+}
 
-        .google-icon {
-            width: 24px;
-            height: 24px;
-        }
+.google-btn:hover {
+    transform: translateY(-3px);
+    background-color: #f3f3f3;
+}
 
-        .login-info {
-            margin-top: 35px;
-            color: var(--gray-text);
-            font-size: 0.95rem;
-            line-height: 1.8;
-        }
+.google-icon {
+    width: 24px;
+    height: 24px;
+}
 
-        /* FOOTER */
+.login-info {
+    margin-top: 35px;
+    color: var(--gray-text);
+    font-size: 0.95rem;
+    line-height: 1.8;
+}
 
-        footer {
-            padding: 80px 0 40px 0;
-            border-top: 1px solid rgba(200,169,107,0.2);
-            background-color: #080808;
-            font-family: 'Cinzel', serif;
-        }
+/* FOOTER */
 
-        .footer-brand {
-            font-size: 1.5rem;
-            color: var(--gold);
-            letter-spacing: 4px;
-            margin-bottom: 1rem;
-            display: block;
-        }
+footer {
+    padding: 80px 0 40px 0;
+    border-top: 1px solid rgba(200,169,107,0.2);
+    background-color: #080808;
+    font-family: 'Cinzel', serif;
+}
 
-        .footer-heading {
-            color: var(--gold);
-            font-size: 0.9rem;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            margin-bottom: 20px;
-        }
+.footer-brand {
+    font-size: 1.5rem;
+    color: var(--gold);
+    letter-spacing: 4px;
+    margin-bottom: 1rem;
+    display: block;
+}
 
-        .footer-link {
-            color: var(--gray-text);
-            text-decoration: none;
-            display: block;
-            margin-bottom: 10px;
-            transition: 0.3s;
-            font-size: 0.9rem;
-        }
+.footer-heading {
+    color: var(--gold);
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+}
 
-        .footer-link:hover {
-            color: var(--gold);
-        }
+.footer-link {
+    color: var(--gray-text);
+    text-decoration: none;
+    display: block;
+    margin-bottom: 10px;
+    transition: 0.3s;
+    font-size: 0.9rem;
+}
 
-        .copyright {
-            color: #444;
-            font-size: 0.75rem;
-            margin-top: 40px;
-            letter-spacing: 1px;
-        }
+.footer-link:hover {
+    color: var(--gold);
+}
 
-        /* RESPONSIVO */
+.copyright {
+    color: #444;
+    font-size: 0.75rem;
+    margin-top: 40px;
+    letter-spacing: 1px;
+}
 
-        @media (max-width: 768px) {
+/* TOAST NOTIFICAÇÕES */
 
-            .navbar {
-                padding: 1rem 0;
-            }
+#custom-toast{
+    position: fixed;
+    top: 30px;
+    right: 30px;
+    z-index: 99999;
+}
 
-            .logo-img {
-                height: 55px;
-            }
+.toast-message{
+    background: linear-gradient(145deg,#131313,#0B0B0B);
+    color: #E5E5E5;
+    border-left: 4px solid #C8A96B;
+    padding: 18px 22px;
+    margin-bottom: 15px;
+    min-width: 320px;
+    font-family: 'Cinzel', serif;
+    box-shadow: 0 0 20px rgba(0,0,0,0.5);
+    animation: toastIn .4s ease;
+}
 
-            .nav-link {
-                margin-left: 0;
-                margin-top: 15px;
-                text-align: center;
-            }
+.toast-success{
+    border-left-color:#C8A96B;
+}
 
-            .login-card {
-                padding: 45px 25px;
-            }
+.toast-error{
+    border-left-color:#ff4d4d;
+}
 
-            .login-title {
-                font-size: 1.8rem;
-            }
+.toast-logout{
+    border-left-color:#888;
+}
 
-            footer {
-                text-align: center;
-                padding: 60px 20px 30px 20px;
-            }
+.toast-title{
+    font-size: 1rem;
+    letter-spacing: 1px;
+    margin-bottom: 6px;
+}
 
-            .footer-heading {
-                margin-top: 20px;
-            }
-        }
+.toast-text{
+    font-size: .85rem;
+    color: #BDBDBD;
+}
 
-    </style>
+@keyframes toastIn{
+
+    from{
+        opacity:0;
+        transform:translateX(100%);
+    }
+
+    to{
+        opacity:1;
+        transform:translateX(0);
+    }
+}
+
+/* RESPONSIVO */
+
+@media (max-width: 768px) {
+
+    .navbar {
+        padding: 1rem 0;
+    }
+
+    .logo-img {
+        height: 55px;
+    }
+
+    .nav-link {
+        margin-left: 0;
+        margin-top: 15px;
+        text-align: center;
+    }
+
+    .login-card {
+        padding: 45px 25px;
+    }
+
+    .login-title {
+        font-size: 1.8rem;
+    }
+
+    footer {
+        text-align: center;
+        padding: 60px 20px 30px 20px;
+    }
+
+    .footer-heading {
+        margin-top: 20px;
+    }
+
+    #custom-toast{
+        right: 15px;
+        left: 15px;
+        top: 15px;
+    }
+
+    .toast-message{
+        min-width: auto;
+    }
+}
+
+</style>
 </head>
 <body>
+<div class="modal fade" id="settingsModal" tabindex="-1">
+
+  <div class="modal-dialog">
+
+    <div class="modal-content bg-dark text-white">
+
+      <div class="modal-header">
+
+        <h5 class="modal-title">
+          Configurações da Conta
+        </h5>
+
+        <button
+          type="button"
+          class="btn-close btn-close-white"
+          data-bs-dismiss="modal">
+        </button>
+
+      </div>
+
+      <div class="modal-body">
+
+        <label class="mb-2">
+          Nome
+        </label>
+
+        <input
+          type="text"
+          id="edit-name"
+          class="form-control mb-3">
+
+        <label class="mb-2">
+          Email
+        </label>
+
+        <input
+          type="text"
+          id="edit-email"
+          class="form-control mb-4"
+          disabled>
+
+        <button
+          class="btn btn-warning w-100"
+          id="save-settings">
+
+          Guardar Alterações
+
+        </button>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
 
     <!-- NAVBAR -->
 
-    <nav class="navbar navbar-expand-lg">
-        <div class="container">
+<nav class="navbar navbar-expand-lg">
+  <div class="container">
 
-            <a class="navbar-brand" href="index.html">
-                <img src="img/Logo.png" alt="YAHWEH Logo" class="logo-img">
-            </a>
+    <a class="navbar-brand" href="index.html">
+      <img src="img/Logo.png" alt="YAHWEH Logo" class="logo-img">
+    </a>
 
-            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon" style="filter: invert(1);"></span>
-            </button>
+    <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon" style="filter: invert(1);"></span>
+    </button>
 
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <div class="navbar-nav ms-auto align-items-center">
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <div class="navbar-nav ms-auto align-items-center">
 
-                    <a class="nav-link" href="index.html">Índice</a>
-                    <a class="nav-link" href="biblia.html">Bíblia Sagrada</a>
-                    <a class="nav-link" href="ia.html">Dúvidas e respostas</a>
-                    <a class="nav-link" href="estudos.html">Estudos bíblicos</a>
-                    <a class="nav-link" href="login.html">Login</a>
+        <a class="nav-link" href="index.html">Índice</a>
+        <a class="nav-link" href="biblia.html">Bíblia Sagrada</a>
+        <a class="nav-link" href="ia.html">Dúvidas e respostas</a>
+        <a class="nav-link" href="estudos.html">Estudos bíblicos</a>
 
-                </div>
-            </div>
+        <!-- LOGIN -->
+        <a class="nav-link" href="login.html" id="login-link">Login</a>
+
+        <!-- USER MENU (aparece quando logado) -->
+        <div class="dropdown d-none" id="user-menu">
+
+          <a class="nav-link dropdown-toggle d-flex align-items-center gap-2"
+             href="#"
+             role="button"
+             data-bs-toggle="dropdown">
+
+            <img id="user-photo"
+                 src=""
+                 alt="user"
+                 style="width:32px;height:32px;border-radius:50%;">
+
+            <span id="user-name"></span>
+
+          </a>
+
+          <ul class="dropdown-menu dropdown-menu-end">
+
+            <li>
+            <a class="dropdown-item"
+   href="#"
+   id="open-settings"
+   data-bs-toggle="modal"
+   data-bs-target="#settingsModal">
+   Configurações
+</a>
+            </li>
+
+            <li><hr class="dropdown-divider"></li>
+
+            <li>
+              <a class="dropdown-item text-danger" href="#" id="logout-btn">
+                Sair
+              </a>
+            </li>
+
+          </ul>
 
         </div>
-    </nav>
+
+      </div>
+    </div>
+
+  </div>
+</nav>
 
     <!-- LOGIN -->
 
@@ -295,13 +462,24 @@
                 Faça login com a sua conta Google para continuar a sua jornada espiritual dentro do ecossistema YAHWEH.
             </p>
 
-            <button class="google-btn">
+           <button class="google-btn" id="google-login">
 
-                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/google/google-original.svg" class="google-icon">
+    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/google/google-original.svg" class="google-icon">
 
-                Entrar com Google
+    Entrar com Google
 
-            </button>
+</button>
+
+<div id="mensagem-erro" style="
+color:#ff4d4d;
+margin-top:20px;
+display:none;
+text-align:center;
+">
+⚠️ Erro ao iniciar sessão.
+</div>
+
+
 
             <div class="login-info">
                 O login permitirá acesso a futuras funcionalidades como:
@@ -344,7 +522,13 @@
                     <a href="biblia.html" class="footer-link">Bíblia Sagrada</a>
                     <a href="ia.html" class="footer-link">Dúvidas e respostas</a>
                     <a href="estudos.html" class="footer-link">Estudos bíblicos</a>
-                    <a href="login.html" class="footer-link">Faça seu login</a>
+                    <a href="login.html"
+   class="footer-link"
+   id="footer-login-link">
+
+    Faça seu login
+
+</a>
 
                 </div>
 
@@ -367,59 +551,10 @@
         </div>
     </footer>
 
-<section class="login-section">
-        <div class="login-card">
-            <button class="google-btn">
-                <img src="..." class="google-icon"> Entrar com Google
-            </button>
 
-            <div id="mensagem-erro" style="color: #ff4d4d; margin-top: 20px; font-family: 'Cinzel', serif; display: none; text-align: center;">
-                ⚠️ Ocorreu um erro ao realizar o login. Por favor, tente novamente.
-            </div>
 
-            </div>
-    </section>
-    
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-<script type="module">
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
-        import { getAuth, GoogleAuthProvider, signInWithPopup } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
-
-        const firebaseConfig = {
-            apiKey: "AIzaSyC7q5DQbxcJfMYigbNf5HI1iZa5RRtkHgw",
-            authDomain: "yahweh-9d256.firebaseapp.com",
-            projectId: "yahweh-9d256",
-            storageBucket: "yahweh-9d256.firebasestorage.app",
-            messagingSenderId: "821003721700",
-            appId: "1:821003721700:web:4e44bb93f8c482feeb85f1",
-            measurementId: "G-QWNZ0FFX7J"
-        };
-
-        const app = initializeApp(firebaseConfig);
-        const auth = getAuth(app);
-        const provider = new GoogleAuthProvider();
-
-        document.querySelector(".google-btn").addEventListener("click", () => {
-            const msgErro = document.getElementById("mensagem-erro");
-            msgErro.style.display = "none"; // Esconde caso já estivesse aparecendo
-
-            signInWithPopup(auth, provider)
-            .then((result) => {
-                const user = result.user;
-                alert("Bem-vindo " + user.displayName);
-                window.location.href = "index.html";
-            })
-            .catch((error) => {
-                console.error(error);
-                // AQUI O ERRO CHAMA A MENSAGEM NO HTML
-                msgErro.style.display = "block";
-                
-                setTimeout(() => {
-                    msgErro.style.display = "none";
-                }, 5000);
-            });
-        });
-    </script>
-
+     <script type="module" src="auth.js"></script>
+   <div id="custom-toast"></div>
 </body>
 </html>
