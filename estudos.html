@@ -84,12 +84,23 @@ footer {
         .page-header { padding: 60px 0 40px 0; }
         #area-explicacao { padding: 25px !important; }
         footer { padding: 40px 0 20px 0; text-align: center; }
+        .navbar-toggler {
+    border: none !important;
+}
+
+.navbar-toggler:focus {
+    box-shadow: none !important;
+}
+
+.custom-toggler {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba%28200,169,107,1%29' stroke-width='2.5' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E") !important;
+}
         
     }
 </style>
 </head>
 <body>
-       <div class="modal fade" id="settingsModal" tabindex="-1">
+     <div class="modal fade" id="settingsModal" tabindex="-1">
 
   <div class="modal-dialog">
 
@@ -146,7 +157,7 @@ footer {
 
 </div>
 
-    <!-- NAVBAR -->
+  <!-- NAVBAR -->
 
 <nav class="navbar navbar-expand-lg">
   <div class="container">
@@ -155,16 +166,14 @@ footer {
       <img src="img/Logo.png" alt="YAHWEH Logo" class="logo-img">
     </a>
 
-    <button class="navbar-toggler border-0"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#navbarNav">
+   <button class="navbar-toggler border-0"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarNav">
 
-      <span class="navbar-toggler-icon"
-            style="filter: invert(1);">
-      </span>
+    <span class="navbar-toggler-icon custom-toggler"></span>
 
-    </button>
+</button>
 
     <div class="collapse navbar-collapse" id="navbarNav">
 
@@ -174,9 +183,10 @@ footer {
         <a class="nav-link" href="biblia.html">Bíblia Sagrada</a>
         <a class="nav-link" href="ia.html">Dúvidas e respostas</a>
         <a class="nav-link" href="estudos.html">Estudos bíblicos</a>
+         <a class="nav-link" href="doacoes.html">Doações</a>
 
         <!-- LOGIN -->
-       <a class="nav-link" href="login.html" id="login-link">Login</a>
+        <a class="nav-link" href="login.html" id="login-link">Login</a>
 
         <!-- USER -->
         <div class="dropdown d-none" id="user-menu">
@@ -236,7 +246,6 @@ footer {
 
   </div>
 </nav>
-
     <section class="page-header">
         <h1 class="page-title">Estudos Bíblicos</h1>
         <p class="text-secondary" style="font-style: italic;">Aprofunda o teu entendimento nas verdades eternas.</p>
@@ -269,10 +278,11 @@ footer {
             
             <div class="col-md-4">
                 <h4 class="footer-heading">Navegação</h4>
-               <a href="index.html" class="footer-link">Início</a>
+           <a href="index.html" class="footer-link">Início</a>
                 <a href="biblia.html" class="footer-link">Bíblia Sagrada</a>
                 <a href="ia.html" class="footer-link">Dúvidas e respostas</a>
                 <a href="estudos.html" class="footer-link">Estudos bíblicos</a>
+                <a href="doacoes.html" class="footer-link">Doações</a>
                 <a href="login.html"
    class="footer-link"
    id="footer-login-link">
