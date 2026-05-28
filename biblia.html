@@ -270,6 +270,17 @@ footer {
 .navbar-collapse {
     border-top: none !important;
 }
+.navbar-toggler {
+    border: none !important;
+}
+
+.navbar-toggler:focus {
+    box-shadow: none !important;
+}
+
+.custom-toggler {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba%28200,169,107,1%29' stroke-width='2.5' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E") !important;
+}
 }
 </style>
 </head>
@@ -331,7 +342,7 @@ footer {
 
 </div>
 
-   <!-- NAVBAR -->
+  <!-- NAVBAR -->
 
 <nav class="navbar navbar-expand-lg">
   <div class="container">
@@ -341,15 +352,13 @@ footer {
     </a>
 
     <button class="navbar-toggler border-0"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#navbarNav">
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarNav">
 
-      <span class="navbar-toggler-icon"
-            style="filter: invert(1);">
-      </span>
+    <span class="navbar-toggler-icon custom-toggler"></span>
 
-    </button>
+</button>
 
     <div class="collapse navbar-collapse" id="navbarNav">
 
@@ -359,9 +368,9 @@ footer {
         <a class="nav-link" href="biblia.html">Bíblia Sagrada</a>
         <a class="nav-link" href="ia.html">Dúvidas e respostas</a>
         <a class="nav-link" href="estudos.html">Estudos bíblicos</a>
-
+         <a class="nav-link" href="doacoes.html">Doações</a>
         <!-- LOGIN -->
-       <a class="nav-link" href="login.html" id="login-link">Login</a>
+        <a class="nav-link" href="login.html" id="login-link">Login</a>
 
         <!-- USER -->
         <div class="dropdown d-none" id="user-menu">
@@ -421,7 +430,6 @@ footer {
 
   </div>
 </nav>
-
     <section class="biblia-header">
         <h1 class="biblia-title">Bíblia Sagrada</h1>
     </section>
@@ -479,10 +487,11 @@ footer {
             
             <div class="col-md-4">
                 <h4 class="footer-heading">Navegação</h4>
-               <a href="index.html" class="footer-link">Início</a>
+                 <a href="index.html" class="footer-link">Início</a>
                 <a href="biblia.html" class="footer-link">Bíblia Sagrada</a>
                 <a href="ia.html" class="footer-link">Dúvidas e respostas</a>
                 <a href="estudos.html" class="footer-link">Estudos bíblicos</a>
+                <a href="doacoes.html" class="footer-link">Doações</a>
                 <a href="login.html"
    class="footer-link"
    id="footer-login-link">
