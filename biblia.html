@@ -8,7 +8,8 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
     <link rel="icon" type="image/png" href="img/Logo.png">
-    <style>
+  <style>
+
 :root {
     --bg-dark: #0B0B0B;
     --card-bg: #131313;
@@ -36,6 +37,7 @@ h1, h2, h3, .nav-link, .section-title, .testamento-title {
 /* =========================
    NAVBAR
 ========================= */
+
 .navbar {
     background-color: var(--bg-dark);
     border-bottom: 1px solid rgba(200, 169, 107, 0.15);
@@ -51,23 +53,48 @@ h1, h2, h3, .nav-link, .section-title, .testamento-title {
 }
 
 @keyframes heartbeat-slow {
-    0% { transform: scale(1); filter: drop-shadow(0 0 2px rgba(200, 169, 107, 0.1)); }
-    50% { transform: scale(1.05); filter: drop-shadow(0 0 8px rgba(200, 169, 107, 0.3)); }
-    100% { transform: scale(1); filter: drop-shadow(0 0 2px rgba(200, 169, 107, 0.1)); }
+    0% {
+        transform: scale(1);
+        filter: drop-shadow(0 0 2px rgba(200, 169, 107, 0.1));
+    }
+
+    50% {
+        transform: scale(1.05);
+        filter: drop-shadow(0 0 8px rgba(200, 169, 107, 0.3));
+    }
+
+    100% {
+        transform: scale(1);
+        filter: drop-shadow(0 0 2px rgba(200, 169, 107, 0.1));
+    }
+}
+
+/* NAV LINKS CORRIGIDOS */
+
+.navbar-nav {
+    align-items: center;
+    gap: 10px;
 }
 
 .nav-link {
     color: var(--white-biblical) !important;
-    font-size: 1.1rem;
+    font-size: 1rem;
     font-weight: 700;
-    margin-left: 30px;
-    letter-spacing: 2px;
-    display: inline-block;
+    margin-left: 22px;
+    letter-spacing: 1px;
+
+    display: inline-flex;
+    align-items: center;
+
     position: relative;
     transition: color 0.4s ease;
+
+    white-space: nowrap;
 }
 
-.nav-link:hover { color: var(--gold) !important; }
+.nav-link:hover {
+    color: var(--gold) !important;
+}
 
 .nav-link::after {
     content: '';
@@ -82,11 +109,15 @@ h1, h2, h3, .nav-link, .section-title, .testamento-title {
     transition: transform 0.4s ease-out;
 }
 
-.nav-link:hover::after { transform: scaleX(1); transform-origin: bottom left; }
+.nav-link:hover::after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+}
 
 /* =========================
    BÍBLIA PAGE
 ========================= */
+
 .biblia-header { 
     padding: 150px 0 50px 0; 
     text-align: center; 
@@ -135,8 +166,9 @@ h1, h2, h3, .nav-link, .section-title, .testamento-title {
 }
 
 /* =========================
-   FOOTER (CORRIGIDO)
+   FOOTER
 ========================= */
+
 footer { 
     padding: 80px 0 40px 0; 
     border-top: 1px solid rgba(200, 169, 107, 0.2); 
@@ -181,11 +213,13 @@ footer {
 }
 
 /* =========================
-   RESPONSIVIDADE MOBILE (CORRIGIDO)
+   RESPONSIVIDADE MOBILE
 ========================= */
+
 @media (max-width: 768px) {
 
     /* NAVBAR */
+
     .navbar {
         padding: 1rem 0;
     }
@@ -198,17 +232,32 @@ footer {
         background-color: #0B0B0B;
         padding: 20px;
         margin-top: 15px;
-        border-top: 1px solid rgba(200, 169, 107, 0.2);
         text-align: center;
+        border-top: none !important;
     }
 
     .nav-link {
         margin-left: 0;
         margin-bottom: 15px;
         font-size: 1rem;
+        white-space: normal;
+        justify-content: center;
+    }
+
+    .navbar-toggler {
+        border: none !important;
+    }
+
+    .navbar-toggler:focus {
+        box-shadow: none !important;
+    }
+
+    .custom-toggler {
+        background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba%28200,169,107,1%29' stroke-width='2.5' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E") !important;
     }
 
     /* HEADER */
+
     .biblia-header {
         padding: 110px 20px 40px 20px;
     }
@@ -219,6 +268,7 @@ footer {
     }
 
     /* TESTAMENTO */
+
     .testamento-container {
         padding: 25px;
     }
@@ -228,6 +278,7 @@ footer {
     }
 
     /* BOOK LIST */
+
     .book-list {
         columns: 1;
         column-gap: 0;
@@ -238,7 +289,8 @@ footer {
         padding: 6px 0;
     }
 
-    /* FOOTER (CORRIGIDO MOBILE) */
+    /* FOOTER */
+
     footer {
         padding: 60px 20px 30px 20px;
         text-align: center;
@@ -266,22 +318,8 @@ footer {
         display: block;
         margin-bottom: 8px;
     }
-    /* REMOVE A LINHA DE CIMA NO MENU MOBILE */
-.navbar-collapse {
-    border-top: none !important;
-}
-.navbar-toggler {
-    border: none !important;
 }
 
-.navbar-toggler:focus {
-    box-shadow: none !important;
-}
-
-.custom-toggler {
-    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba%28200,169,107,1%29' stroke-width='2.5' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E") !important;
-}
-}
 </style>
 </head>
 <body>
@@ -346,88 +384,46 @@ footer {
 
 <nav class="navbar navbar-expand-lg">
   <div class="container">
-
     <a class="navbar-brand" href="index.html">
       <img src="img/Logo.png" alt="YAHWEH Logo" class="logo-img">
     </a>
 
-    <button class="navbar-toggler border-0"
-        type="button"
-        data-bs-toggle="collapse"
-        data-bs-target="#navbarNav">
-
-    <span class="navbar-toggler-icon custom-toggler"></span>
-
-</button>
+    <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
 
     <div class="collapse navbar-collapse" id="navbarNav">
-
       <div class="navbar-nav ms-auto align-items-center">
-
         <a class="nav-link" href="index.html">Índice</a>
         <a class="nav-link" href="biblia.html">Bíblia Sagrada</a>
         <a class="nav-link" href="ia.html">Dúvidas e respostas</a>
         <a class="nav-link" href="estudos.html">Estudos bíblicos</a>
-         <a class="nav-link" href="doacoes.html">Doações</a>
-        <!-- LOGIN -->
+        <a class="nav-link" href="doacoes.html">Doações</a>
+
         <a class="nav-link" href="login.html" id="login-link">Login</a>
 
-        <!-- USER -->
-        <div class="dropdown d-none" id="user-menu">
-
-          <a class="nav-link dropdown-toggle d-flex align-items-center gap-2"
-             href="#"
-             role="button"
-             data-bs-toggle="dropdown">
-
-            <img id="user-photo"
-                 src=""
-                 style="width:32px;height:32px;border-radius:50%;">
-
+         <div class="dropdown" id="user-menu">
+          <a class="nav-link dropdown-toggle d-flex align-items-center gap-2" href="#" role="button" data-bs-toggle="dropdown">
+            <img id="user-photo" src="" style="width:32px;height:32px;border-radius:50%; object-fit: cover;">
             <span id="user-name"></span>
-
           </a>
-
-          <ul class="dropdown-menu dropdown-menu-end">
-
             <li>
-
-              <a class="dropdown-item"
-                 href="#"
-                 id="open-settings"
-                 data-bs-toggle="modal"
-                 data-bs-target="#settingsModal">
-
-                 Configurações
-
-              </a>
-
-            </li>
-
+  <a class="dropdown-item d-none" href="admin.php" id="admin-link">
+    Painel Admin
+  </a>
+</li>
+            
             <li>
-              <hr class="dropdown-divider">
+              <a class="dropdown-item" href="#" id="open-settings" data-bs-toggle="modal" data-bs-target="#settingsModal">Configurações</a>
             </li>
-
+            <li><hr class="dropdown-divider"></li>
             <li>
-
-              <a class="dropdown-item text-danger"
-                 href="#"
-                 id="logout-btn">
-
-                 Sair
-
-              </a>
-
+              <a class="dropdown-item text-danger" href="#" id="logout-btn">Sair</a>
             </li>
-
           </ul>
-
         </div>
-
       </div>
-
     </div>
-
   </div>
 </nav>
     <section class="biblia-header">
