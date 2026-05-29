@@ -36,7 +36,9 @@ h1, h2, h3, .nav-link {
     letter-spacing: 2px;
 }
 
-/* NAVBAR */
+/* =========================
+   NAVBAR CORRIGIDA (ALINHAMENTO IGUAL OUTRAS PÁGINAS)
+========================= */
 
 .navbar {
     background-color: var(--bg-dark);
@@ -44,11 +46,27 @@ h1, h2, h3, .nav-link {
     padding: 1.5rem 0;
 }
 
+/* FORÇA ALINHAMENTO IGUAL ENTRE LOGO E MENU */
+.navbar .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.navbar-nav {
+    display: flex;
+    align-items: center;
+    flex-wrap: nowrap;
+    gap: 10px;
+    margin-left: auto; /* <-- ESSA É A CHAVE DO ALINHAMENTO */
+}
+
 .logo-img {
     height: 75px;
     width: auto;
     display: inline-block;
     animation: heartbeat-slow 4s infinite ease-in-out;
+    transform-origin: center;
 }
 
 @keyframes heartbeat-slow {
@@ -71,11 +89,12 @@ h1, h2, h3, .nav-link {
 
 .nav-link {
     color: var(--white-biblical) !important;
-    font-size: 1.1rem;
+    font-size: 1rem;
     font-weight: 700;
-    margin-left: 30px;
+    margin-left: 22px; /* PADRÃO IGUAL OUTRAS PÁGINAS */
     position: relative;
-    transition: 0.4s;
+    transition: color 0.4s ease;
+    white-space: nowrap;
 }
 
 .nav-link:hover {
@@ -164,13 +183,6 @@ h1, h2, h3, .nav-link {
     height: 24px;
 }
 
-.login-info {
-    margin-top: 35px;
-    color: var(--gray-text);
-    font-size: 0.95rem;
-    line-height: 1.8;
-}
-
 /* FOOTER */
 
 footer {
@@ -216,7 +228,7 @@ footer {
     letter-spacing: 1px;
 }
 
-/* TOAST NOTIFICAÇÕES */
+/* TOAST */
 
 #custom-toast{
     position: fixed;
@@ -237,36 +249,11 @@ footer {
     animation: toastIn .4s ease;
 }
 
-.toast-success{
-    border-left-color:#C8A96B;
-}
-
-.toast-error{
-    border-left-color:#ff4d4d;
-}
-
-.toast-logout{
-    border-left-color:#888;
-}
-
-.toast-title{
-    font-size: 1rem;
-    letter-spacing: 1px;
-    margin-bottom: 6px;
-}
-
-.toast-text{
-    font-size: .85rem;
-    color: #BDBDBD;
-}
-
 @keyframes toastIn{
-
     from{
         opacity:0;
         transform:translateX(100%);
     }
-
     to{
         opacity:1;
         transform:translateX(0);
@@ -317,17 +304,18 @@ footer {
     .toast-message{
         min-width: auto;
     }
+
     .navbar-toggler {
-    border: none;
-}
+        border: none;
+    }
 
-.navbar-toggler:focus {
-    box-shadow: none;
-}
+    .navbar-toggler:focus {
+        box-shadow: none;
+    }
 
-.navbar-toggler-icon {
-    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba%28200,169,107,1%29' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
-}
+    .navbar-toggler-icon {
+        background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba%28200,169,107,1%29' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+    }
 }
 
 </style>
@@ -394,89 +382,46 @@ footer {
 
 <nav class="navbar navbar-expand-lg">
   <div class="container">
-
     <a class="navbar-brand" href="index.html">
       <img src="img/Logo.png" alt="YAHWEH Logo" class="logo-img">
     </a>
 
- <button class="navbar-toggler border-0"
-        type="button"
-        data-bs-toggle="collapse"
-        data-bs-target="#navbarNav">
-
-    <span class="navbar-toggler-icon custom-toggler"></span>
-
-</button>
+    <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
 
     <div class="collapse navbar-collapse" id="navbarNav">
-
       <div class="navbar-nav ms-auto align-items-center">
-
         <a class="nav-link" href="index.html">Índice</a>
         <a class="nav-link" href="biblia.html">Bíblia Sagrada</a>
         <a class="nav-link" href="ia.html">Dúvidas e respostas</a>
         <a class="nav-link" href="estudos.html">Estudos bíblicos</a>
-         <a class="nav-link" href="doacoes.html">Doações</a>
+        <a class="nav-link" href="doacoes.html">Doações</a>
 
-        <!-- LOGIN -->
         <a class="nav-link" href="login.html" id="login-link">Login</a>
 
-        <!-- USER -->
-        <div class="dropdown d-none" id="user-menu">
-
-          <a class="nav-link dropdown-toggle d-flex align-items-center gap-2"
-             href="#"
-             role="button"
-             data-bs-toggle="dropdown">
-
-            <img id="user-photo"
-                 src=""
-                 style="width:32px;height:32px;border-radius:50%;">
-
+         <div class="dropdown" id="user-menu">
+          <a class="nav-link dropdown-toggle d-flex align-items-center gap-2" href="#" role="button" data-bs-toggle="dropdown">
+            <img id="user-photo" src="" style="width:32px;height:32px;border-radius:50%; object-fit: cover;">
             <span id="user-name"></span>
-
           </a>
-
-          <ul class="dropdown-menu dropdown-menu-end">
-
             <li>
-
-              <a class="dropdown-item"
-                 href="#"
-                 id="open-settings"
-                 data-bs-toggle="modal"
-                 data-bs-target="#settingsModal">
-
-                 Configurações
-
-              </a>
-
-            </li>
-
+  <a class="dropdown-item d-none" href="admin.php" id="admin-link">
+    Painel Admin
+  </a>
+</li>
+            
             <li>
-              <hr class="dropdown-divider">
+              <a class="dropdown-item" href="#" id="open-settings" data-bs-toggle="modal" data-bs-target="#settingsModal">Configurações</a>
             </li>
-
+            <li><hr class="dropdown-divider"></li>
             <li>
-
-              <a class="dropdown-item text-danger"
-                 href="#"
-                 id="logout-btn">
-
-                 Sair
-
-              </a>
-
+              <a class="dropdown-item text-danger" href="#" id="logout-btn">Sair</a>
             </li>
-
           </ul>
-
         </div>
-
       </div>
-
     </div>
-
   </div>
 </nav>
     <!-- LOGIN -->
