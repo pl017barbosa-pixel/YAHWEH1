@@ -8,8 +8,8 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
     <link rel="icon" type="image/png" href="img/Logo.png">
-    <style>
-        :root {
+<style>
+:root {
     --bg-dark: #0B0B0B;
     --card-bg: #131313;
     --gold: #C8A96B;
@@ -18,73 +18,247 @@
     --gray-text: #888888;
 }
 
-body { background-color: var(--bg-dark); color: var(--white-biblical); font-family: 'Playfair Display', serif; }
-h1, .nav-link { font-family: 'Cinzel', serif; letter-spacing: 2px; }
+body {
+    background-color: var(--bg-dark);
+    color: var(--white-biblical);
+    font-family: 'Playfair Display', serif;
+}
 
-/* NAVBAR */
-.navbar { background-color: var(--bg-dark); border-bottom: 1px solid rgba(200, 169, 107, 0.15); padding: 1.5rem 0; }
-.logo-img { height: 75px; width: auto; display: inline-block; animation: heartbeat-slow 4s infinite ease-in-out; transform-origin: center; }
+h1, .nav-link {
+    font-family: 'Cinzel', serif;
+    letter-spacing: 2px;
+}
+
+/* =========================
+   NAVBAR (CORRIGIDA E PADRONIZADA)
+========================= */
+
+.navbar {
+    background-color: var(--bg-dark);
+    border-bottom: 1px solid rgba(200, 169, 107, 0.15);
+    padding: 1.5rem 0;
+}
+
+/* garante alinhamento igual em todas as páginas */
+.navbar .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* evita deslocamento lateral diferente entre páginas */
+.navbar-nav {
+    display: flex;
+    align-items: center;
+    flex-wrap: nowrap;
+    gap: 10px;
+
+    /* importante para corrigir “puxão pra direita” */
+    margin-left: auto;
+}
+
+.logo-img {
+    height: 75px;
+    width: auto;
+    display: inline-block;
+    animation: heartbeat-slow 4s infinite ease-in-out;
+    transform-origin: center;
+}
 
 @keyframes heartbeat-slow {
-    0% { transform: scale(1); filter: drop-shadow(0 0 2px rgba(200, 169, 107, 0.1)); }
-    50% { transform: scale(1.05); filter: drop-shadow(0 0 8px rgba(200, 169, 107, 0.3)); }
-    100% { transform: scale(1); filter: drop-shadow(0 0 2px rgba(200, 169, 107, 0.1)); }
+    0% {
+        transform: scale(1);
+        filter: drop-shadow(0 0 2px rgba(200,169,107,0.1));
+    }
+
+    50% {
+        transform: scale(1.05);
+        filter: drop-shadow(0 0 8px rgba(200,169,107,0.3));
+    }
+
+    100% {
+        transform: scale(1);
+        filter: drop-shadow(0 0 2px rgba(200,169,107,0.1));
+    }
 }
 
-.nav-link { color: var(--white-biblical) !important; font-size: 1.1rem; font-weight: 700; margin-left: 30px; position: relative; transition: color 0.4s ease; }
-.nav-link:hover { color: var(--gold) !important; }
-.nav-link::after { content: ''; position: absolute; width: 100%; transform: scaleX(0); height: 1px; bottom: -5px; left: 0; background-color: var(--gold); transform-origin: bottom right; transition: transform 0.4s ease-out; }
-.nav-link:hover::after { transform: scaleX(1); transform-origin: bottom left; }
+.nav-link {
+    color: var(--white-biblical) !important;
+    font-size: 1rem;
+    font-weight: 700;
+    margin-left: 22px;
+    position: relative;
+    transition: color 0.4s ease;
+    white-space: nowrap;
+}
 
-/* CTA - EFEITOS DE INTERAÇÃO */
+.nav-link:hover {
+    color: var(--gold) !important;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 1px;
+    bottom: -5px;
+    left: 0;
+    background-color: var(--gold);
+    transform-origin: bottom right;
+    transition: transform 0.4s ease-out;
+}
+
+.nav-link:hover::after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+}
+
+/* CTA */
+
 .cta-container { 
-    margin-top: 50px; padding: 40px; background: linear-gradient(145deg, #151515, #0a0a0a); 
-    border: 2px solid var(--gold); border-radius: 20px; 
-    box-shadow: 0 10px 30px rgba(0,0,0,0.6), inset 0 0 15px rgba(200, 169, 107, 0.1); 
-    display: inline-block; cursor: pointer; transition: all 0.4s ease; 
+    margin-top: 50px;
+    padding: 40px;
+    background: linear-gradient(145deg, #151515, #0a0a0a); 
+    border: 2px solid var(--gold);
+    border-radius: 20px; 
+    box-shadow:
+        0 10px 30px rgba(0,0,0,0.6),
+        inset 0 0 15px rgba(200,169,107,0.1); 
+    display: inline-block;
+    cursor: pointer;
+    transition: all 0.4s ease; 
 }
+
 .cta-container:hover {
     transform: translateY(-10px) scale(1.02);
-    box-shadow: 0 20px 40px rgba(0,0,0,0.8), 0 0 20px rgba(200, 169, 107, 0.3);
+    box-shadow:
+        0 20px 40px rgba(0,0,0,0.8),
+        0 0 20px rgba(200,169,107,0.3);
     border-color: #ffffff;
 }
-.cta-text { color: var(--gold); font-size: 1.3rem; font-family: 'Cinzel', serif; margin-top: 20px; letter-spacing: 1px; font-weight: 700; transition: color 0.3s ease; }
-.cta-container:hover .cta-text { color: #ffffff; }
 
-footer { padding: 80px 0 40px 0; border-top: 1px solid rgba(200, 169, 107, 0.2); background-color: #080808; font-family: 'Cinzel', serif; }
-footer .col-md-4 { text-align: left; }
-.footer-brand { font-size: 1.5rem; color: var(--gold); letter-spacing: 4px; }
-.footer-heading { color: var(--gold); font-size: 0.9rem; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 20px; }
-.footer-link { color: var(--gray-text); text-decoration: none; display: block; margin-bottom: 10px; transition: 0.3s; font-size: 0.9rem; }
-.footer-link:hover { color: var(--gold); }
-.copyright { color: #444; font-size: 0.75rem; margin-top: 40px; letter-spacing: 1px; }
+.cta-text {
+    color: var(--gold);
+    font-size: 1.3rem;
+    font-family: 'Cinzel', serif;
+    margin-top: 20px;
+    letter-spacing: 1px;
+    font-weight: 700;
+    transition: color 0.3s ease;
+}
 
-/* HAMBURGUER */
-.navbar-toggler-icon { background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='white' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e"); }
+.cta-container:hover .cta-text {
+    color: #ffffff;
+}
 
-/* MOBILE AJUSTADO */
+/* FOOTER */
+
+footer {
+    padding: 80px 0 40px 0;
+    border-top: 1px solid rgba(200,169,107,0.2);
+    background-color: #080808;
+    font-family: 'Cinzel', serif;
+}
+
+footer .col-md-4 {
+    text-align: left;
+}
+
+.footer-brand {
+    font-size: 1.5rem;
+    color: var(--gold);
+    letter-spacing: 4px;
+}
+
+.footer-heading {
+    color: var(--gold);
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+}
+
+.footer-link {
+    color: var(--gray-text);
+    text-decoration: none;
+    display: block;
+    margin-bottom: 10px;
+    transition: 0.3s;
+    font-size: 0.9rem;
+}
+
+.footer-link:hover {
+    color: var(--gold);
+}
+
+.copyright {
+    color: #444;
+    font-size: 0.75rem;
+    margin-top: 40px;
+    letter-spacing: 1px;
+}
+
+/* MOBILE */
+
 @media (max-width: 768px) {
-    .navbar { padding: 1rem 0; }
-    .logo-img { height: 55px; }
-    .nav-link { margin: 10px 0; font-size: 1rem; }
-    .navbar-collapse { background-color: #0B0B0B; padding: 20px; margin-top: 10px; text-align: center; }
-    .cta-container { display: flex; flex-direction: column; align-items: center; margin-left: auto; margin-right: auto; }
-    footer { text-align: center; }
-    footer .col-md-4 { text-align: center; }
+
+    .navbar {
+        padding: 1rem 0;
+    }
+
+    .logo-img {
+        height: 55px;
+    }
+
+    .navbar-collapse {
+        background-color: #0B0B0B;
+        padding: 20px;
+        margin-top: 10px;
+        text-align: center;
+    }
+
+    .navbar-nav {
+        flex-direction: column;
+        gap: 0;
+        margin-left: 0;
+    }
+
+    .nav-link {
+        margin: 10px 0;
+        font-size: 1rem;
+        text-align: center;
+    }
+
+    .cta-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    footer {
+        text-align: center;
+    }
+
+    footer .col-md-4 {
+        text-align: center;
+    }
 
     .navbar-toggler {
-    border: none;
-}
+        border: none !important;
+    }
 
-.navbar-toggler:focus {
-    box-shadow: none;
-}
+    .navbar-toggler:focus {
+        box-shadow: none !important;
+    }
 
-.navbar-toggler-icon {
-    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba%28200,169,107,1%29' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+    .navbar-toggler-icon {
+        background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba%28200,169,107,1%29' stroke-width='2.5' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E") !important;
+    }
 }
-}
-    </style>
+</style>
 </head>
 <body>
       <div class="modal fade" id="settingsModal" tabindex="-1">
@@ -148,89 +322,46 @@ footer .col-md-4 { text-align: left; }
 
 <nav class="navbar navbar-expand-lg">
   <div class="container">
-
     <a class="navbar-brand" href="index.html">
       <img src="img/Logo.png" alt="YAHWEH Logo" class="logo-img">
     </a>
 
-   <button class="navbar-toggler border-0"
-        type="button"
-        data-bs-toggle="collapse"
-        data-bs-target="#navbarNav">
-
-    <span class="navbar-toggler-icon"></span>
-
-</button>
+    <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
 
     <div class="collapse navbar-collapse" id="navbarNav">
-
       <div class="navbar-nav ms-auto align-items-center">
-
         <a class="nav-link" href="index.html">Índice</a>
         <a class="nav-link" href="biblia.html">Bíblia Sagrada</a>
         <a class="nav-link" href="ia.html">Dúvidas e respostas</a>
         <a class="nav-link" href="estudos.html">Estudos bíblicos</a>
-         <a class="nav-link" href="doacoes.html">Doações</a>
+        <a class="nav-link" href="doacoes.html">Doações</a>
 
-        <!-- LOGIN -->
         <a class="nav-link" href="login.html" id="login-link">Login</a>
 
-        <!-- USER -->
-        <div class="dropdown d-none" id="user-menu">
-
-          <a class="nav-link dropdown-toggle d-flex align-items-center gap-2"
-             href="#"
-             role="button"
-             data-bs-toggle="dropdown">
-
-            <img id="user-photo"
-                 src=""
-                 style="width:32px;height:32px;border-radius:50%;">
-
+         <div class="dropdown" id="user-menu">
+          <a class="nav-link dropdown-toggle d-flex align-items-center gap-2" href="#" role="button" data-bs-toggle="dropdown">
+            <img id="user-photo" src="" style="width:32px;height:32px;border-radius:50%; object-fit: cover;">
             <span id="user-name"></span>
-
           </a>
-
-          <ul class="dropdown-menu dropdown-menu-end">
-
             <li>
-
-              <a class="dropdown-item"
-                 href="#"
-                 id="open-settings"
-                 data-bs-toggle="modal"
-                 data-bs-target="#settingsModal">
-
-                 Configurações
-
-              </a>
-
-            </li>
-
+  <a class="dropdown-item d-none" href="admin.php" id="admin-link">
+    Painel Admin
+  </a>
+</li>
+            
             <li>
-              <hr class="dropdown-divider">
+              <a class="dropdown-item" href="#" id="open-settings" data-bs-toggle="modal" data-bs-target="#settingsModal">Configurações</a>
             </li>
-
+            <li><hr class="dropdown-divider"></li>
             <li>
-
-              <a class="dropdown-item text-danger"
-                 href="#"
-                 id="logout-btn">
-
-                 Sair
-
-              </a>
-
+              <a class="dropdown-item text-danger" href="#" id="logout-btn">Sair</a>
             </li>
-
           </ul>
-
         </div>
-
       </div>
-
     </div>
-
   </div>
 </nav>
 
