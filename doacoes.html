@@ -11,264 +11,344 @@
 
     <style>
 
-        :root {
-            --bg-dark: #0B0B0B;
-            --card-bg: #131313;
-            --card-bg-hover: #1A1A1A;
-            --gold: #C8A96B;
-            --gold-light: #F4E4BC;
-            --gold-dark: #8B6E3C;
-            --gold-hover: #B39256;
-            --white-biblical: #E5E5E5;
-            --gray-text: #888888;
-        }
-
-        body {
-            background-color: var(--bg-dark);
-            color: var(--white-biblical);
-            font-family: 'Playfair Display', serif;
-            overflow-x: hidden;
-        }
-
-        h1, h2, h3, .nav-link, .section-title {
-            font-family: 'Cinzel', serif;
-            letter-spacing: 2px;
-        }
-
-        /* NAVBAR */
-
-        .navbar {
-            background-color: var(--bg-dark);
-            border-bottom: 1px solid rgba(200, 169, 107, 0.15);
-            padding: 1.5rem 0;
-        }
-
-        .logo-img {
-            height: 75px;
-            width: auto;
-            animation: heartbeat-slow 4s infinite ease-in-out;
-        }
-
-        @keyframes heartbeat-slow {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-            100% { transform: scale(1); }
-        }
-
-        .nav-link {
-            color: var(--white-biblical) !important;
-            font-size: 1.1rem;
-            font-weight: 700;
-            margin-left: 30px;
-            letter-spacing: 2px;
-            position: relative;
-            transition: 0.4s;
-        }
-
-        .nav-link:hover {
-            color: var(--gold) !important;
-        }
-
-        .nav-link::after {
-            content: '';
-            position: absolute;
-            width: 100%;
-            transform: scaleX(0);
-            height: 1px;
-            bottom: -5px;
-            left: 0;
-            background-color: var(--gold);
-            transform-origin: bottom right;
-            transition: transform 0.4s ease-out;
-        }
-
-        .nav-link:hover::after {
-            transform: scaleX(1);
-            transform-origin: bottom left;
-        }
-
-        /* HERO */
-
-        .hero-section {
-            padding: 180px 20px 100px 20px;
-            text-align: center;
-        }
-
-        .hero-title {
-            font-size: 5rem;
-            font-weight: 900;
-            font-family: 'Cinzel', serif;
-            letter-spacing: 10px;
-            text-transform: uppercase;
-            background: linear-gradient(to bottom, var(--gold-light) 0%, var(--gold) 50%, var(--gold-dark) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .hero-subtitle {
-            font-size: 1.3rem;
-            color: #D1D1D1;
-            font-style: italic;
-            margin-top: 20px;
-            margin-bottom: 50px;
-        }
-
-        /* CARD */
-
-        .donation-card {
-            max-width: 700px;
-            margin: auto;
-            background: linear-gradient(145deg, var(--card-bg), #0f0f0f);
-            border: 1px solid rgba(200,169,107,0.12);
-            padding: 60px 40px;
-            text-align: center;
-            transition: 0.4s;
-        }
-
-        .donation-card:hover {
-            border-color: var(--gold);
-            transform: translateY(-5px);
-        }
-
-        .donation-title {
-            color: var(--gold);
-            font-size: 2rem;
-            margin-bottom: 25px;
-        }
-
-        .donation-text {
-            color: #C0C0C0;
-            line-height: 1.8;
-            margin-bottom: 35px;
-            font-size: 1.05rem;
-        }
-
-        .paypal-btn {
-            margin-top: 20px;
-        }
-
-        /* VERSES */
-
-        .verse-section {
-            padding: 120px 20px;
-            background: linear-gradient(to bottom, #0b0b0b, #111, #0b0b0b);
-            text-align: center;
-        }
-
-        .verse-text {
-            font-size: 2rem;
-            font-style: italic;
-            max-width: 850px;
-            margin: auto;
-            line-height: 1.5;
-        }
-
-        .verse-ref {
-            color: var(--gold);
-            margin-top: 25px;
-            letter-spacing: 3px;
-            font-family: 'Cinzel', serif;
-        }
-
-        /* FOOTER */
-
-        footer {
-            padding: 80px 0 40px 0;
-            border-top: 1px solid rgba(200,169,107,0.2);
-            background-color: #080808;
-            font-family: 'Cinzel', serif;
-        }
-
-        .footer-brand {
-            font-size: 1.5rem;
-            color: var(--gold);
-            letter-spacing: 4px;
-        }
-
-        .footer-heading {
-            color: var(--gold);
-            font-size: 0.9rem;
-            letter-spacing: 2px;
-            margin-bottom: 20px;
-        }
-
-        .footer-link {
-            color: var(--gray-text);
-            text-decoration: none;
-            display: block;
-            margin-bottom: 10px;
-            transition: 0.3s;
-            font-size: 0.9rem;
-        }
-
-        .footer-link:hover {
-            color: var(--gold);
-        }
-
-        .copyright {
-            color: #444;
-            font-size: 0.75rem;
-            margin-top: 40px;
-            letter-spacing: 1px;
-        }
-
-        /* RESPONSIVO */
-
-        @media (max-width: 768px) {
-
-            .hero-section {
-                padding: 120px 20px 60px 20px;
-            }
-
-            .hero-title {
-                font-size: 3rem;
-                letter-spacing: 4px;
-            }
-
-            .hero-subtitle {
-                font-size: 1rem;
-            }
-
-            .donation-card {
-                padding: 40px 25px;
-            }
-
-            .donation-title {
-                font-size: 1.5rem;
-            }
-
-            .verse-text {
-                font-size: 1.3rem;
-            }
-
-            .logo-img {
-                height: 55px;
-            }
-
-            .nav-link {
-                margin-left: 0;
-                margin-top: 15px;
-                text-align: center;
-            }
-
-            footer {
-                text-align: center;
-                padding: 60px 20px 30px;
-            }
-            .navbar-toggler {
-    border: none !important;
+:root {
+    --bg-dark: #0B0B0B;
+    --card-bg: #131313;
+    --card-bg-hover: #1A1A1A;
+    --gold: #C8A96B;
+    --gold-light: #F4E4BC;
+    --gold-dark: #8B6E3C;
+    --gold-hover: #B39256;
+    --white-biblical: #E5E5E5;
+    --gray-text: #888888;
 }
 
-.navbar-toggler:focus {
-    box-shadow: none !important;
+body {
+    background-color: var(--bg-dark);
+    color: var(--white-biblical);
+    font-family: 'Playfair Display', serif;
+    overflow-x: hidden;
 }
 
-.custom-toggler {
-    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba%28200,169,107,1%29' stroke-width='2.5' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E") !important;
+h1,
+h2,
+h3,
+.nav-link,
+.section-title {
+    font-family: 'Cinzel', serif;
+    letter-spacing: 2px;
 }
-        }
 
-    </style>
+/* =========================
+   NAVBAR
+========================= */
+
+.navbar {
+    background-color: var(--bg-dark);
+    border-bottom: 1px solid rgba(200, 169, 107, 0.15);
+    padding: 1.5rem 0;
+}
+
+.navbar-nav {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: nowrap;
+}
+
+.logo-img {
+    height: 75px;
+    width: auto;
+    animation: heartbeat-slow 4s infinite ease-in-out;
+}
+
+@keyframes heartbeat-slow {
+
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.05);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+.nav-link {
+    color: var(--white-biblical) !important;
+    font-size: 1rem;
+    font-weight: 700;
+    margin-left: 22px;
+    letter-spacing: 1px;
+
+    position: relative;
+    transition: 0.4s;
+
+    white-space: nowrap;
+
+    display: inline-flex;
+    align-items: center;
+}
+
+.nav-link:hover {
+    color: var(--gold) !important;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 1px;
+    bottom: -5px;
+    left: 0;
+    background-color: var(--gold);
+    transform-origin: bottom right;
+    transition: transform 0.4s ease-out;
+}
+
+.nav-link:hover::after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+}
+
+/* =========================
+   HERO
+========================= */
+
+.hero-section {
+    padding: 180px 20px 100px 20px;
+    text-align: center;
+}
+
+.hero-title {
+    font-size: 5rem;
+    font-weight: 900;
+    font-family: 'Cinzel', serif;
+    letter-spacing: 10px;
+    text-transform: uppercase;
+
+    background: linear-gradient(
+        to bottom,
+        var(--gold-light) 0%,
+        var(--gold) 50%,
+        var(--gold-dark) 100%
+    );
+
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.hero-subtitle {
+    font-size: 1.3rem;
+    color: #D1D1D1;
+    font-style: italic;
+    margin-top: 20px;
+    margin-bottom: 50px;
+}
+
+/* =========================
+   CARD
+========================= */
+
+.donation-card {
+    max-width: 700px;
+    margin: auto;
+
+    background: linear-gradient(
+        145deg,
+        var(--card-bg),
+        #0f0f0f
+    );
+
+    border: 1px solid rgba(200,169,107,0.12);
+
+    padding: 60px 40px;
+
+    text-align: center;
+    transition: 0.4s;
+}
+
+.donation-card:hover {
+    border-color: var(--gold);
+    transform: translateY(-5px);
+}
+
+.donation-title {
+    color: var(--gold);
+    font-size: 2rem;
+    margin-bottom: 25px;
+}
+
+.donation-text {
+    color: #C0C0C0;
+    line-height: 1.8;
+    margin-bottom: 35px;
+    font-size: 1.05rem;
+}
+
+.paypal-btn {
+    margin-top: 20px;
+}
+
+/* =========================
+   VERSES
+========================= */
+
+.verse-section {
+    padding: 120px 20px;
+    background: linear-gradient(
+        to bottom,
+        #0b0b0b,
+        #111,
+        #0b0b0b
+    );
+
+    text-align: center;
+}
+
+.verse-text {
+    font-size: 2rem;
+    font-style: italic;
+    max-width: 850px;
+    margin: auto;
+    line-height: 1.5;
+}
+
+.verse-ref {
+    color: var(--gold);
+    margin-top: 25px;
+    letter-spacing: 3px;
+    font-family: 'Cinzel', serif;
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+    padding: 80px 0 40px 0;
+
+    border-top: 1px solid rgba(200,169,107,0.2);
+
+    background-color: #080808;
+
+    font-family: 'Cinzel', serif;
+}
+
+.footer-brand {
+    font-size: 1.5rem;
+    color: var(--gold);
+    letter-spacing: 4px;
+}
+
+.footer-heading {
+    color: var(--gold);
+    font-size: 0.9rem;
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+}
+
+.footer-link {
+    color: var(--gray-text);
+    text-decoration: none;
+
+    display: block;
+
+    margin-bottom: 10px;
+
+    transition: 0.3s;
+
+    font-size: 0.9rem;
+}
+
+.footer-link:hover {
+    color: var(--gold);
+}
+
+.copyright {
+    color: #444;
+    font-size: 0.75rem;
+    margin-top: 40px;
+    letter-spacing: 1px;
+}
+
+/* =========================
+   RESPONSIVO
+========================= */
+
+@media (max-width: 768px) {
+
+    .hero-section {
+        padding: 120px 20px 60px 20px;
+    }
+
+    .hero-title {
+        font-size: 3rem;
+        letter-spacing: 4px;
+    }
+
+    .hero-subtitle {
+        font-size: 1rem;
+    }
+
+    .donation-card {
+        padding: 40px 25px;
+    }
+
+    .donation-title {
+        font-size: 1.5rem;
+    }
+
+    .verse-text {
+        font-size: 1.3rem;
+    }
+
+    .logo-img {
+        height: 55px;
+    }
+
+    .navbar-collapse {
+        background-color: #0B0B0B;
+        padding: 20px;
+        margin-top: 15px;
+        text-align: center;
+        border-top: none !important;
+    }
+
+    .nav-link {
+        margin-left: 0;
+        margin-top: 15px;
+
+        text-align: center;
+
+        white-space: normal;
+
+        justify-content: center;
+    }
+
+    footer {
+        text-align: center;
+        padding: 60px 20px 30px;
+    }
+
+    .navbar-toggler {
+        border: none !important;
+    }
+
+    .navbar-toggler:focus {
+        box-shadow: none !important;
+    }
+
+    .custom-toggler {
+        background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba%28200,169,107,1%29' stroke-width='2.5' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E") !important;
+    }
+}
+
+</style>
 </head>
 <body>
 <div class="modal fade" id="settingsModal" tabindex="-1">
@@ -332,92 +412,48 @@
 
 <nav class="navbar navbar-expand-lg">
   <div class="container">
-
     <a class="navbar-brand" href="index.html">
       <img src="img/Logo.png" alt="YAHWEH Logo" class="logo-img">
     </a>
 
-    <button class="navbar-toggler border-0"
-        type="button"
-        data-bs-toggle="collapse"
-        data-bs-target="#navbarNav">
-
-    <span class="navbar-toggler-icon custom-toggler"></span>
-
-</button>
+    <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
 
     <div class="collapse navbar-collapse" id="navbarNav">
-
       <div class="navbar-nav ms-auto align-items-center">
-
         <a class="nav-link" href="index.html">Índice</a>
         <a class="nav-link" href="biblia.html">Bíblia Sagrada</a>
         <a class="nav-link" href="ia.html">Dúvidas e respostas</a>
         <a class="nav-link" href="estudos.html">Estudos bíblicos</a>
-         <a class="nav-link" href="doacoes.html">Doações</a>
+        <a class="nav-link" href="doacoes.html">Doações</a>
 
-        <!-- LOGIN -->
         <a class="nav-link" href="login.html" id="login-link">Login</a>
 
-        <!-- USER -->
-        <div class="dropdown d-none" id="user-menu">
-
-          <a class="nav-link dropdown-toggle d-flex align-items-center gap-2"
-             href="#"
-             role="button"
-             data-bs-toggle="dropdown">
-
-            <img id="user-photo"
-                 src=""
-                 style="width:32px;height:32px;border-radius:50%;">
-
+         <div class="dropdown" id="user-menu">
+          <a class="nav-link dropdown-toggle d-flex align-items-center gap-2" href="#" role="button" data-bs-toggle="dropdown">
+            <img id="user-photo" src="" style="width:32px;height:32px;border-radius:50%; object-fit: cover;">
             <span id="user-name"></span>
-
           </a>
-
-          <ul class="dropdown-menu dropdown-menu-end">
-
             <li>
-
-              <a class="dropdown-item"
-                 href="#"
-                 id="open-settings"
-                 data-bs-toggle="modal"
-                 data-bs-target="#settingsModal">
-
-                 Configurações
-
-              </a>
-
-            </li>
-
+  <a class="dropdown-item d-none" href="admin.php" id="admin-link">
+    Painel Admin
+  </a>
+</li>
+            
             <li>
-              <hr class="dropdown-divider">
+              <a class="dropdown-item" href="#" id="open-settings" data-bs-toggle="modal" data-bs-target="#settingsModal">Configurações</a>
             </li>
-
+            <li><hr class="dropdown-divider"></li>
             <li>
-
-              <a class="dropdown-item text-danger"
-                 href="#"
-                 id="logout-btn">
-
-                 Sair
-
-              </a>
-
+              <a class="dropdown-item text-danger" href="#" id="logout-btn">Sair</a>
             </li>
-
           </ul>
-
         </div>
-
       </div>
-
     </div>
-
   </div>
 </nav>
-
 <!-- HERO -->
 
 <section class="hero-section">
@@ -444,6 +480,8 @@
                 A sua contribuição ajuda-nos a manter o site online,
                 desenvolver novas funcionalidades e continuar espalhando
                 a Palavra do Senhor.
+                <br><br>
+                CLIQUE NO BOTÃO ABAIXO E DOE SUA QUANTIA
             </p>
 
             <!-- PAYPAL -->
@@ -537,7 +575,7 @@
     Faça seu login
 
 </a>
-                <a href="doacoes.html" class="footer-link">Doações</a>
+              
 
             </div>
 
