@@ -4,15 +4,14 @@ import {
   GoogleAuthProvider,
   signInWithPopup,
   onAuthStateChanged,
-  signOut,
-  updateProfile
+  signOut
 } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyC7q5DQbxcJFmYigbNf5HI1iZa5RRtkHgw",
+  apiKey: "AIzaSyC7q5DQbxcJFmYigbfbN5HI1iZa5RRtkHgw",
   authDomain: "yahweh-9d256.firebaseapp.com",
   projectId: "yahweh-9d256",
-  storageBucket: "yahweh-9d256.firebasestorage.app",
+  storageBucket: "yahweh-9d256.appspot.com",
   messagingSenderId: "821003721700",
   appId: "1:821003721700:web:4e44bb93f8c482feeb85f1"
 };
@@ -21,18 +20,18 @@ const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const provider = new GoogleAuthProvider();
 
-const ADMIN_EMAIL = "pl017@gmail.com";
+/* 🔥 ADMIN */
+const ADMIN_EMAIL = "pl017barbosa@gmail.com";
 
-// ELEMENTOS
+/* ELEMENTOS */
 const loginLink = document.getElementById("login-link");
 const footerLogin = document.getElementById("footer-login-link");
 const userMenu = document.getElementById("user-menu");
 const userName = document.getElementById("user-name");
 const userPhoto = document.getElementById("user-photo");
+const adminLink = document.getElementById("admin-link"); // ✅ FIX AQUI
 
-const adminItem = document.getElementById("admin-item");
-
-// LOGIN
+/* LOGIN */
 document.getElementById("google-login")?.addEventListener("click", async () => {
   try {
     const result = await signInWithPopup(auth, provider);
@@ -51,42 +50,45 @@ document.getElementById("google-login")?.addEventListener("click", async () => {
   }
 });
 
-// STATE
+/* STATE */
 onAuthStateChanged(auth, (user) => {
 
-  if (user) {
+  if (!user) {
+    if (loginLink) loginLink.style.display = "block";
+    if (footerLogin) footerLogin.style.display = "block";
+    if (userMenu) userMenu.style.display = "none";
+    if (adminLink) adminLink.style.display = "none";
+    return;
+  }
 
-    loginLink?.style && (loginLink.style.display = "none");
-    footerLogin?.style && (footerLogin.style.display = "none");
+  // UI normal
+  if (loginLink) loginLink.style.display = "none";
+  if (footerLogin) footerLogin.style.display = "none";
+  if (userMenu) userMenu.style.display = "flex";
 
-    userMenu?.style && (userMenu.style.display = "flex");
+  if (userName) userName.textContent = user.displayName || "Utilizador";
+  if (userPhoto) userPhoto.src = user.photoURL || "img/Logo.png";
 
-    if (userName) userName.textContent = user.displayName || "Utilizador";
-    if (userPhoto) {
-      userPhoto.src = user.photoURL || "img/Logo.png";
+  console.log("EMAIL DETECTADO:", user.email);
+
+  /* 🔥 ADMIN CHECK FORTE */
+  const email = (user.email || "").toLowerCase();
+  const admin = ADMIN_EMAIL.toLowerCase();
+
+  if (adminLink) {
+    if (email === admin) {
+      adminLink.classList.remove("d-none");
+      adminLink.style.display = "block";
+      console.log("ADMIN LIBERADO");
+    } else {
+      adminLink.classList.add("d-none");
+      adminLink.style.display = "none";
+      console.log("ADMIN BLOQUEADO");
     }
-
-    // 🚨 REGRA FINAL DO ADMIN (IMPLACÁVEL)
-    if (adminItem) {
-      if (user.email === ADMIN_EMAIL) {
-        adminItem.style.display = "block";
-      } else {
-        adminItem.style.display = "none";
-      }
-    }
-
-  } else {
-
-    loginLink?.style && (loginLink.style.display = "block");
-    footerLogin?.style && (footerLogin.style.display = "block");
-
-    userMenu?.style && (userMenu.style.display = "none");
-
-    if (adminItem) adminItem.style.display = "none";
   }
 });
 
-// LOGOUT
+/* LOGOUT */
 document.addEventListener("click", async (e) => {
   if (e.target.id === "logout-btn") {
     await signOut(auth);
