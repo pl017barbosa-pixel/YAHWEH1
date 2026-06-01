@@ -323,108 +323,201 @@ footer {
 </style>
 </head>
 <body>
-       <div class="modal fade" id="settingsModal" tabindex="-1">
+     <div class="modal fade" id="settingsModal" tabindex="-1">
 
-  <div class="modal-dialog">
+    <div class="modal-dialog">
 
-    <div class="modal-content bg-dark text-white">
+        <div class="modal-content bg-dark text-white">
 
-      <div class="modal-header">
+            <div class="modal-header">
 
-        <h5 class="modal-title">
-          Configurações da Conta
-        </h5>
+                <h5 class="modal-title">
+                    Configurações da Conta
+                </h5>
 
-        <button
-          type="button"
-          class="btn-close btn-close-white"
-          data-bs-dismiss="modal">
-        </button>
+                <button
+                    type="button"
+                    class="btn-close btn-close-white"
+                    data-bs-dismiss="modal">
+                </button>
 
-      </div>
+            </div>
 
-      <div class="modal-body">
+            <div class="modal-body">
 
-        <label class="mb-2">
-          Nome
-        </label>
+                <label class="mb-2">
+                    Nome
+                </label>
 
-        <input
-          type="text"
-          id="edit-name"
-          class="form-control mb-3">
+                <input
+                    type="text"
+                    id="edit-name"
+                    class="form-control mb-3">
 
-        <label class="mb-2">
-          Email
-        </label>
+                <label class="mb-2">
+                    Email
+                </label>
 
-        <input
-          type="text"
-          id="edit-email"
-          class="form-control mb-4"
-          disabled>
+                <input
+                    type="text"
+                    id="edit-email"
+                    class="form-control mb-4"
+                    disabled>
 
-        <button
-          class="btn btn-warning w-100"
-          id="save-settings">
+                <button
+                    class="btn btn-warning w-100"
+                    id="save-settings">
 
-          Guardar Alterações
+                    Guardar Alterações
 
-        </button>
+                </button>
 
-      </div>
+            </div>
+
+        </div>
 
     </div>
-
-  </div>
 
 </div>
 
-  <!-- NAVBAR -->
+<!-- NAVBAR -->
 
 <nav class="navbar navbar-expand-lg">
-  <div class="container">
-    <a class="navbar-brand" href="index.html">
-      <img src="img/Logo.png" alt="YAHWEH Logo" class="logo-img">
-    </a>
 
-    <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-      <span class="navbar-toggler-icon"></span>
-    </button>
+    <div class="container">
 
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <div class="navbar-nav ms-auto align-items-center">
-        <a class="nav-link" href="index.html">Índice</a>
-        <a class="nav-link" href="biblia.html">Bíblia Sagrada</a>
-        <a class="nav-link" href="ia.html">Dúvidas e respostas</a>
-        <a class="nav-link" href="estudos.html">Estudos bíblicos</a>
-        <a class="nav-link" href="doacoes.html">Doações</a>
+        <a class="navbar-brand" href="index.html">
+            <img src="img/Logo.png" alt="YAHWEH Logo" class="logo-img">
+        </a>
 
-        <a class="nav-link" href="login.html" id="login-link">Login</a>
+        <button
+            class="navbar-toggler border-0"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarNav"
+            aria-controls="navbarNav"
+            aria-expanded="false"
+            aria-label="Toggle navigation">
 
-         <div class="dropdown" id="user-menu">
-          <a class="nav-link dropdown-toggle d-flex align-items-center gap-2" href="#" role="button" data-bs-toggle="dropdown">
-            <img id="user-photo" src="" style="width:32px;height:32px;border-radius:50%; object-fit: cover;">
-            <span id="user-name"></span>
-          </a>
-            <li>
-  <a class="dropdown-item d-none" href="admin.php" id="admin-link">
-    Painel Admin
-  </a>
-</li>
-            
-            <li>
-              <a class="dropdown-item" href="#" id="open-settings" data-bs-toggle="modal" data-bs-target="#settingsModal">Configurações</a>
-            </li>
-            <li><hr class="dropdown-divider"></li>
-            <li>
-              <a class="dropdown-item text-danger" href="#" id="logout-btn">Sair</a>
-            </li>
-          </ul>
+            <span class="navbar-toggler-icon"></span>
+
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+
+            <div class="navbar-nav ms-auto align-items-center">
+
+                <a class="nav-link" href="index.html">Índice</a>
+
+                <a class="nav-link" href="biblia.html">
+                    Bíblia Sagrada
+                </a>
+
+                <a class="nav-link" href="ia.html">
+                    Dúvidas e respostas
+                </a>
+
+                <a class="nav-link" href="estudos.html">
+                    Estudos bíblicos
+                </a>
+
+                <a class="nav-link" href="doacoes.html">
+                    Doações
+                </a>
+
+                <a
+                    class="nav-link"
+                    href="login.html"
+                    id="login-link">
+
+                    Login
+
+                </a>
+
+                <div class="dropdown ms-3" id="user-menu">
+
+                    <a
+                        class="nav-link dropdown-toggle d-flex align-items-center gap-2"
+                        href="#"
+                        role="button"
+                        data-bs-toggle="dropdown"
+                        aria-expanded="false">
+
+                        <img
+                            id="user-photo"
+                            src=""
+                            alt="Perfil"
+                            style="
+                                width:32px;
+                                height:32px;
+                                border-radius:50%;
+                                object-fit:cover;
+                            ">
+
+                        <span
+                            id="user-name"
+                            style="
+                                max-width:140px;
+                                overflow:hidden;
+                                text-overflow:ellipsis;
+                                white-space:nowrap;
+                                display:inline-block;
+                            ">
+                        </span>
+
+                    </a>
+
+                    <ul class="dropdown-menu dropdown-menu-end">
+
+                        <li>
+                            <a
+                                class="dropdown-item d-none"
+                                href="admin.php"
+                                id="admin-link">
+
+                                Painel Admin
+
+                            </a>
+                        </li>
+
+                        <li>
+                            <a
+                                class="dropdown-item"
+                                href="#"
+                                id="open-settings"
+                                data-bs-toggle="modal"
+                                data-bs-target="#settingsModal">
+
+                                Configurações
+
+                            </a>
+                        </li>
+
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+
+                        <li>
+                            <a
+                                class="dropdown-item text-danger"
+                                href="#"
+                                id="logout-btn">
+
+                                Sair
+
+                            </a>
+                        </li>
+
+                    </ul>
+
+                </div>
+
+            </div>
+
         </div>
-      </div>
+
     </div>
-  </div>
+
 </nav>
     <section class="biblia-header">
         <h1 class="biblia-title">Bíblia Sagrada</h1>
