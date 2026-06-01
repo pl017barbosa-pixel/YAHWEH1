@@ -3,19 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Estudos Bíblicos | YAHWEH</title>
+    <title>IA Bíblica | YAHWEH</title>
     
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
     <link rel="icon" type="image/png" href="img/Logo.png">
-    <style>
+<style>
 :root {
     --bg-dark: #0B0B0B;
     --card-bg: #131313;
-    --card-bg-hover: #1A1A1A;
     --gold: #C8A96B;
-    --gold-light: #F4E4BC;
-    --gold-dark: #8B6E3C;
     --gold-hover: #B39256;
     --white-biblical: #E5E5E5;
     --gray-text: #888888;
@@ -25,16 +22,15 @@ body {
     background-color: var(--bg-dark);
     color: var(--white-biblical);
     font-family: 'Playfair Display', serif;
-    overflow-x: hidden;
 }
 
-h1, h2, h3, .nav-link, .section-title {
+h1, .nav-link {
     font-family: 'Cinzel', serif;
     letter-spacing: 2px;
 }
 
 /* =========================
-   NAVBAR (CORRIGIDA E UNIFICADA)
+   NAVBAR (CORRIGIDA + SEM CORTAR NOME DO USER)
 ========================= */
 
 .navbar {
@@ -43,13 +39,31 @@ h1, h2, h3, .nav-link, .section-title {
     padding: 1.5rem 0;
 }
 
+/* ALTERAÇÃO MÍNIMA PARA IGUALAR TAMANHO VISUAL */
+.navbar .container {
+    display: flex;
+    align-items: center;
+}
+
+/* menu sempre alinhado à direita */
 .navbar-nav {
     display: flex;
     align-items: center;
     flex-wrap: nowrap;
     gap: 10px;
+    margin-left: auto;
+    flex-shrink: 0; /* 🔥 evita cortar conteúdo */
 }
 
+/* 🔥 CORREÇÃO PRINCIPAL (nome do utilizador não corta mais) */
+.navbar .user-name {
+    white-space: nowrap;
+    overflow: visible;
+    text-overflow: unset;
+    max-width: none;
+}
+
+/* logo */
 .logo-img {
     height: 75px;
     width: auto;
@@ -63,10 +77,12 @@ h1, h2, h3, .nav-link, .section-title {
         transform: scale(1);
         filter: drop-shadow(0 0 2px rgba(200,169,107,0.1));
     }
+
     50% {
         transform: scale(1.05);
         filter: drop-shadow(0 0 8px rgba(200,169,107,0.3));
     }
+
     100% {
         transform: scale(1);
         filter: drop-shadow(0 0 2px rgba(200,169,107,0.1));
@@ -78,8 +94,6 @@ h1, h2, h3, .nav-link, .section-title {
     font-size: 1rem;
     font-weight: 700;
     margin-left: 22px;
-    letter-spacing: 1px;
-    display: inline-block;
     position: relative;
     transition: color 0.4s ease;
     white-space: nowrap;
@@ -107,72 +121,44 @@ h1, h2, h3, .nav-link, .section-title {
     transform-origin: bottom left;
 }
 
-/* =========================
-   HERO / PAGE HEADER
-========================= */
-
-.page-header {
-    padding: 150px 0 80px 0;
-    text-align: center;
-}
-
-.page-title {
-    font-size: 3.5rem;
-    color: var(--gold);
-    text-transform: uppercase;
-    margin-bottom: 20px;
-}
-
-/* =========================
-   CARDS
-========================= */
-
-.card-custom {
-    background: linear-gradient(145deg, var(--card-bg), #0f0f0f);
-    border: 1px solid rgba(200,169,107,0.12);
+/* CTA */
+.cta-container { 
+    margin-top: 50px;
     padding: 40px;
-    text-align: center;
-    height: 100%;
-    transition: all 0.4s ease;
-}
-
-.card-custom:hover {
-    border-color: var(--gold);
-    background: var(--card-bg-hover);
-    transform: translateY(-8px);
-}
-
-.card-title {
-    color: var(--gold);
-    font-size: 1.4rem;
-    margin-bottom: 20px;
-    text-transform: uppercase;
-}
-
-/* =========================
-   BOTÃO
-========================= */
-
-.btn-yahweh-outline {
-    border: 1px solid var(--gold);
-    color: var(--gold) !important;
-    padding: 12px 30px;
-    text-transform: uppercase;
-    font-family: 'Cinzel', serif;
-    background: transparent;
-    transition: 0.3s;
+    background: linear-gradient(145deg, #151515, #0a0a0a); 
+    border: 2px solid var(--gold);
+    border-radius: 20px; 
+    box-shadow:
+        0 10px 30px rgba(0,0,0,0.6),
+        inset 0 0 15px rgba(200,169,107,0.1); 
+    display: inline-block;
     cursor: pointer;
+    transition: all 0.4s ease; 
 }
 
-.btn-yahweh-outline:hover {
-    background-color: var(--gold);
-    color: #000 !important;
+.cta-container:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow:
+        0 20px 40px rgba(0,0,0,0.8),
+        0 0 20px rgba(200,169,107,0.3);
+    border-color: #ffffff;
 }
 
-/* =========================
-   FOOTER (LIMPO)
-========================= */
+.cta-text {
+    color: var(--gold);
+    font-size: 1.3rem;
+    font-family: 'Cinzel', serif;
+    margin-top: 20px;
+    letter-spacing: 1px;
+    font-weight: 700;
+    transition: color 0.3s ease;
+}
 
+.cta-container:hover .cta-text {
+    color: #ffffff;
+}
+
+/* FOOTER */
 footer {
     padding: 80px 0 40px 0;
     border-top: 1px solid rgba(200,169,107,0.2);
@@ -180,12 +166,14 @@ footer {
     font-family: 'Cinzel', serif;
 }
 
+footer .col-md-4 {
+    text-align: left;
+}
+
 .footer-brand {
     font-size: 1.5rem;
     color: var(--gold);
     letter-spacing: 4px;
-    margin-bottom: 1rem;
-    display: block;
 }
 
 .footer-heading {
@@ -216,62 +204,50 @@ footer {
     letter-spacing: 1px;
 }
 
-/* =========================
-   RESPONSIVO
-========================= */
-
-@media (max-width: 991px) {
-    .navbar-nav {
-        text-align: center;
-        padding-top: 20px;
-        flex-direction: column;
-        gap: 0;
-    }
-
-    .nav-link {
-        margin-left: 0;
-        margin-bottom: 15px;
-        display: block;
-    }
-
-    .logo-img {
-        height: 50px;
-    }
-}
-
+/* MOBILE */
 @media (max-width: 768px) {
-
-    .page-title {
-        font-size: 2rem !important;
-    }
-
-    .page-header {
-        padding: 60px 0 40px 0;
-    }
-
-    #area-explicacao {
-        padding: 25px !important;
-    }
-
-    footer {
-        padding: 60px 20px 30px 20px;
-        text-align: center;
-    }
 
     .navbar {
         padding: 1rem 0;
     }
 
+    .logo-img {
+        height: 55px;
+    }
+
     .navbar-collapse {
         background-color: #0B0B0B;
         padding: 20px;
-        margin-top: 15px;
+        margin-top: 10px;
         text-align: center;
     }
 
+    .navbar-nav {
+        flex-direction: column;
+        gap: 0;
+        margin-left: 0;
+    }
+
     .nav-link {
+        margin: 10px 0;
         font-size: 1rem;
-        margin-top: 15px;
+        text-align: center;
+    }
+
+    .cta-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    footer {
+        text-align: center;
+    }
+
+    footer .col-md-4 {
+        text-align: center;
     }
 
     .navbar-toggler {
@@ -289,7 +265,7 @@ footer {
 </style>
 </head>
 <body>
-           <div class="modal fade" id="settingsModal" tabindex="-1">
+      <div class="modal fade" id="settingsModal" tabindex="-1">
 
     <div class="modal-dialog">
 
@@ -485,39 +461,33 @@ footer {
     </div>
 
 </nav>
-    <section class="page-header">
-        <h1 class="page-title">Estudos Bíblicos</h1>
-        <p class="text-secondary" style="font-style: italic;">Aprofunda o teu entendimento nas verdades eternas.</p>
-    </section>
 
-    <div class="container pb-5">
-        <div class="row g-4" id="container-estudos"></div>
-    </div>
-
-    <div class="container mb-5">
-        <div id="area-explicacao" class="p-5" style="border: 1px solid var(--gold); display: none; background: #0f0f0f;">
-            <h2 id="titulo-alvo" style="color: var(--gold); font-family: 'Cinzel', serif; margin-bottom: 20px; text-align: center;"></h2>
-            <div id="texto-alvo" style="color: #E5E5E5; font-size: 1.1rem; line-height: 1.8;"></div>
-            <div class="text-center mt-4">
-                <button class="btn btn-yahweh-outline" onclick="fecharEstudo()">Fechar Estudo</button>
-            </div>
+    <div class="container text-center" style="margin-top: 100px; color: var(--white-biblical);">
+        <h1 style="color: var(--gold); margin-bottom: 20px;">O QUE É O CHATGP CRENTE?</h1>
+        <p style="max-width: 600px; margin: 0 auto 30px auto; font-size: 1.2rem; line-height: 1.6;">
+            O CHATGP CRENTE é o seu conselheiro digital, fundamentado nas Escrituras Sagradas. 
+            Ele foi desenhado para auxiliar no seu estudo bíblico, esclarecer dúvidas teológicas, 
+            ajudar na criação de sermões e oferecer conforto e orientação cristã a qualquer momento.
+        </p>
+        <div class="cta-container" onclick="openChat()">
+            <img src="img/chat1.png" alt="Guia" style="display: block; margin: 0 auto; max-width: 180px; height: auto; filter: drop-shadow(0 0 10px rgba(200, 169, 107, 0.4));">
+            <p class="cta-text">CLIQUE AQUI E INICIE SUA CONVERSA.</p>
         </div>
     </div>
 
-   <footer>
-    <div class="container">
-        <div class="row g-4">
-            <div class="col-md-4">
-                <div class="d-flex align-items-center mb-3">
-                    <img src="img/Logo.png" alt="YAHWEH Logo" style="height: 40px; width: auto; margin-right: 15px;">
-                    <span class="footer-brand" style="margin-bottom: 0;">YAHWEH</span>
+    <footer style="margin-top: 150px;">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="d-flex align-items-center mb-3 justify-content-center justify-content-md-start">
+                        <img src="img/Logo.png" alt="YAHWEH Logo" style="height: 40px; width: auto; margin-right: 15px;">
+                        <span class="footer-brand" style="margin-bottom: 0;">YAHWEH</span>
+                    </div>
+                    <p style="color:var(--gray-text); font-size: 0.85rem;">Aprofunda-te na Palavra com as nossas ferramentas digitais de estudo bíblico.</p>
                 </div>
-                <p style="color:var(--gray-text); font-size: 0.85rem;">Aprofunda-te na Palavra com as nossas ferramentas digitais de estudo bíblico.</p>
-            </div>
-            
-            <div class="col-md-4">
-                <h4 class="footer-heading">Navegação</h4>
-           <a href="index.html" class="footer-link">Início</a>
+                <div class="col-md-4">
+                    <h4 class="footer-heading">Navegação</h4>
+            <a href="index.html" class="footer-link">Início</a>
                 <a href="biblia.html" class="footer-link">Bíblia Sagrada</a>
                 <a href="ia.html" class="footer-link">Dúvidas e respostas</a>
                 <a href="estudos.html" class="footer-link">Estudos bíblicos</a>
@@ -529,328 +499,55 @@ footer {
     Faça seu login
 
 </a>
+                </div>
+                <div class="col-md-4">
+                    <h4 class="footer-heading">Sobre</h4>
+                    <p style="color:var(--gray-text); font-size: 0.85rem;">Compromisso com a verdade e o estudo aprofundado das Escrituras Sagradas.</p>
+                </div>
             </div>
+            <div class="text-center copyright">&copy; 2026 YAHWEH - AD MAIOREM DEI GLORIAM</div>
+        </div>
+    </footer>
 
-            <div class="col-md-4">
-                <h4 class="footer-heading">Sobre</h4>
-                <p style="color:var(--gray-text); font-size: 0.85rem;">Compromisso com a verdade e o estudo aprofundado das Escrituras Sagradas.</p>
-            </div>
-        </div>
-        
-        <div class="text-center copyright">
-            &copy; 2026 YAHWEH - AD MAIOREM DEI GLORIAM
-        </div>
-    </div>
-</footer>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
      <script type="module" src="auth.js"></script>
      <div id="custom-toast"></div>
-  <script>
-console.log("Script YAHWEH carregado.");
-
-let dadosGlobais = [];
-
-/* =========================
-   CARREGAR ESTUDOS JSON
-========================= */
-async function carregarEstudos() {
-
-    try {
-
-        // Caminho relativo corrigido
-        const resposta = await fetch('./estudos.json?v=' + Date.now(), {
-            cache: "no-cache"
-        });
-
-        if (!resposta.ok) {
-            throw new Error("Erro HTTP: " + resposta.status);
-        }
-
-        const data = await resposta.json();
-
-        console.log("Estudos carregados com sucesso.");
-        console.log(data);
-
-        // Segurança extra
-        if (!data.estudos || !Array.isArray(data.estudos)) {
-            throw new Error("Formato inválido do JSON.");
-        }
-
-        dadosGlobais = data.estudos;
-
-        const container = document.getElementById('container-estudos');
-
-        if (!container) {
-            console.error("Container dos estudos não encontrado.");
-            return;
-        }
-
-        container.innerHTML = "";
-
-        data.estudos.forEach((item, index) => {
-
-            // Evita erro com aspas simples
-            const tituloSeguro = item.titulo.replace(/'/g, "\\'");
-
-           container.innerHTML += `
-    <div class="col-12 col-md-6 col-lg-4 mb-4">
-        <div class="card-custom">
-
-            <h3 class="card-title">
-                ${item.titulo}
-            </h3>
-
-            <button 
-                class="btn btn-yahweh-outline"
-                type="button"
-                onclick="abrirEstudo('${tituloSeguro}')">
-
-                Acessar
-
-            </button>
-
-        </div>
-    </div>
-`;
-        });
-
-    } catch (erro) {
-
-        console.error("ERRO CRÍTICO:", erro);
-
-        const container = document.getElementById('container-estudos');
-
-        if (container) {
-
-            container.innerHTML = `
-                <div class="col-12 text-center">
-
-                    <div style="
-                        border:1px solid #C8A96B;
-                        padding:30px;
-                        background:#111;
-                        color:#E5E5E5;
-                    ">
-
-                        <h3 style="color:#C8A96B;">
-                            Erro ao carregar estudos
-                        </h3>
-
-                        <p>
-                            O arquivo estudos.json não foi encontrado
-                            ou possui erro de estrutura.
-                        </p>
-
-                        <p style="color:#888;">
-                            Verifique se o arquivo está na mesma pasta
-                            do estudos.html
-                        </p>
-
-                    </div>
-
-                </div>
-            `;
-        }
+    <script>
+       // Função para abrir o chat
+function openChat() {
+    if (window.voiceflow && window.voiceflow.chat) { 
+        window.voiceflow.chat.open(); 
     }
 }
 
-/* =========================
-   ABRIR ESTUDO
-========================= */
-function abrirEstudo(titulo) {
-
-    console.log("Abrindo estudo:", titulo);
-
-    const item = dadosGlobais.find(i => i.titulo === titulo);
-
-    if (!item) {
-        console.error("Estudo não encontrado:", titulo);
-        return;
+// Inicialização do Voiceflow
+(function(d, t) {
+    var v = d.createElement(t), s = d.getElementsByTagName(t)[0];
+    v.onload = function() { 
+        window.voiceflow.chat.load({ 
+            verify: { projectID: '6a0d8c928ea288aed8936027' }, 
+            url: 'https://general-runtime.voiceflow.com', 
+            voice: { url: "https://runtime-api.voiceflow.com" } 
+        }); 
     }
+    v.src = "https://cdn.voiceflow.com/widget-next/bundle.mjs"; 
+    v.type = "text/javascript"; 
+    s.parentNode.insertBefore(v, s);
+})(document, 'script');
 
-    const areaExplicacao = document.getElementById('area-explicacao');
-    const tituloAlvo = document.getElementById('titulo-alvo');
-    const textoAlvo = document.getElementById('texto-alvo');
-
-    if (!areaExplicacao || !tituloAlvo || !textoAlvo) {
-        console.error("Elementos HTML não encontrados.");
-        return;
-    }
-
-    tituloAlvo.innerText = item.titulo;
-
-    let htmlExplicacao = "";
-
-    /* =========================
-       PROCESSAR CONTEÚDO
-    ========================= */
-
-    if (Array.isArray(item.explicacao_espiritual)) {
-
-        // DISCÍPULOS
-        if (
-            item.explicacao_espiritual[0] &&
-            item.explicacao_espiritual[0].nome
-        ) {
-
-            item.explicacao_espiritual.forEach(disc => {
-
-                htmlExplicacao += `
-                    <p>
-                        <strong>${disc.nome}:</strong>
-                        ${disc.texto}
-                    </p>
-                `;
-            });
+// Fechar chat ao clicar fora
+document.addEventListener('click', function(event) {
+    const chatWidget = document.querySelector('.vfrc-widget');
+    const ctaButton = document.querySelector('.cta-container');
+    
+    // Verifica se o clique foi fora do widget e fora do botão CTA
+    if (window.voiceflow && window.voiceflow.chat) {
+        // Se o widget estiver presente no DOM e o alvo não for o chat nem o botão
+        if (chatWidget && !chatWidget.contains(event.target) && !ctaButton.contains(event.target)) {
+            window.voiceflow.chat.close();
         }
-
-        // QUIZ
-        else if (
-            item.explicacao_espiritual[0] &&
-            item.explicacao_espiritual[0].nivel
-        ) {
-
-            item.explicacao_espiritual.forEach(nivel => {
-
-                htmlExplicacao += `
-                    <h6 style="
-                        color: var(--gold);
-                        margin-top:15px;
-                        font-family: 'Cinzel', serif;
-                    ">
-                        ${nivel.nivel}
-                    </h6>
-
-                    <ul>
-                `;
-
-                nivel.perguntas.forEach(p => {
-
-                    htmlExplicacao += `
-                        <li style="margin-bottom:15px;">
-
-                            <strong>${p.p}</strong>
-
-                            <br>
-
-                            <em style="color: var(--gray-text);">
-                                R: ${p.r}
-                            </em>
-
-                        </li>
-                    `;
-                });
-
-                htmlExplicacao += `</ul>`;
-            });
-        }
-
-    } else {
-
-        // TEXTO NORMAL
-        htmlExplicacao = `
-            <p>
-                ${item.explicacao_espiritual}
-            </p>
-        `;
     }
-
-    /* =========================
-       MONTAR HTML
-    ========================= */
-
-    textoAlvo.innerHTML = `
-
-        <h5 style="
-            color: var(--gold);
-            font-family: 'Cinzel', serif;
-            margin-top:10px;
-        ">
-            Base Teológica
-        </h5>
-
-        <p style="margin-bottom:20px;">
-            ${item.base_teologica}
-        </p>
-
-        <h5 style="
-            color: var(--gold);
-            font-family: 'Cinzel', serif;
-        ">
-            Reflexão Espiritual
-        </h5>
-
-        <div class="reflexao-content">
-            ${htmlExplicacao}
-        </div>
-
-        <h5 style="
-            color: var(--gold);
-            font-family: 'Cinzel', serif;
-            margin-top:20px;
-        ">
-            Apelo Evangelístico
-        </h5>
-
-        <p>
-            ${item.apelo_evangelistico}
-        </p>
-    `;
-
-    /* =========================
-       MOSTRAR ÁREA
-    ========================= */
-
-    areaExplicacao.style.display = 'block';
-
-    setTimeout(() => {
-
-        areaExplicacao.scrollIntoView({
-            behavior: 'smooth',
-            block: 'start'
-        });
-
-    }, 100);
-}
-
-/* =========================
-   FECHAR ESTUDO
-========================= */
-function fecharEstudo() {
-
-    const areaExplicacao = document.getElementById('area-explicacao');
-
-    if (areaExplicacao) {
-        areaExplicacao.style.display = 'none';
-    }
-
-    const containerEstudos = document.getElementById('container-estudos');
-
-    if (containerEstudos) {
-
-        setTimeout(() => {
-
-            containerEstudos.scrollIntoView({
-                behavior: 'smooth',
-                block: 'start'
-            });
-
-        }, 100);
-    }
-}
-/* =========================
-   EXPOR FUNÇÕES GLOBALMENTE
-========================= */
-window.abrirEstudo = abrirEstudo;
-window.fecharEstudo = fecharEstudo;
-
-/* =========================
-   INICIAR
-========================= */
-document.addEventListener("DOMContentLoaded", () => {
-    carregarEstudos();
 });
-
-</script>
+    </script>
 </body>
 </html>
