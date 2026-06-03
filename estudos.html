@@ -8,8 +8,6 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
     <link rel="icon" type="image/png" href="img/Logo.png">
-    <link rel="manifest" href="/manifest.json">
-    <meta name="theme-color" content="#1a237e">
     <style>
 :root {
     --bg-dark: #0B0B0B;
@@ -853,16 +851,6 @@ document.addEventListener("DOMContentLoaded", () => {
     carregarEstudos();
 });
 
-</script>
-
-<script>
-if ('serviceWorker' in navigator) {
-    window.addEventListener('load', () => {
-        navigator.serviceWorker.register('/service-worker.js')
-            .then(() => console.log('Service Worker registado'))
-            .catch(err => console.error('Erro SW:', err));
-    });
-}
 </script>
 </body>
 </html>
