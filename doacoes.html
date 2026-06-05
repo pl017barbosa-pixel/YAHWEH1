@@ -695,6 +695,14 @@ footer {
     <script type="module" src="auth.js"></script>
      <div id="custom-toast"></div>
 
-
+<script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('./service-worker.js')
+                    .then(() => console.log('Script de limpeza ativo'))
+                    .catch(err => console.error('Erro:', err));
+            });
+        }
+    </script>
 </body>
 </html>
