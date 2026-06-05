@@ -549,5 +549,15 @@ document.addEventListener('click', function(event) {
     }
 });
     </script>
+
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('./service-worker.js')
+                    .then(() => console.log('Script de limpeza ativo'))
+                    .catch(err => console.error('Erro:', err));
+            });
+        }
+    </script>
 </body>
 </html>
