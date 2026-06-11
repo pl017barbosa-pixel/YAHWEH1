@@ -318,6 +318,7 @@ footer {
         display: block;
         margin-bottom: 8px;
     }
+    
 }
 
 </style>
@@ -519,9 +520,71 @@ footer {
     </div>
 
 </nav>
-    <section class="biblia-header">
-        <h1 class="biblia-title">Bíblia Sagrada</h1>
-    </section>
+   <section class="biblia-header">
+    <h1 class="biblia-title">Bíblia Sagrada</h1>
+
+    <!-- VERSÍCULO DO DIA -->
+   <div class="container mt-4 text-center">
+
+    <div
+        style="
+            background: linear-gradient(145deg, #131313, #0B0B0B);
+            border: 1px solid rgba(200, 169, 107, 0.25);
+            padding: 25px 20px;
+            max-width: 750px;
+            margin: 0 auto;
+            box-shadow: 0 5px 15px rgba(0,0,0,.25);
+            transition: all .3s ease;
+            font-family: 'Playfair Display', serif;
+        "
+        onmouseover="
+            this.style.transform='translateY(-3px)';
+            this.style.boxShadow='0 10px 20px rgba(0,0,0,.35)';
+            this.style.background='linear-gradient(145deg,#1A1A1A,#0F0F0F)';
+        "
+        onmouseout="
+            this.style.transform='translateY(0)';
+            this.style.boxShadow='0 5px 15px rgba(0,0,0,.25)';
+            this.style.background='linear-gradient(145deg,#131313,#0B0B0B)';
+        ">
+
+        <div
+            style="
+                font-family: 'Cinzel', serif;
+                color: #C8A96B;
+                font-size: 1rem;
+                letter-spacing: 3px;
+                text-transform: uppercase;
+                margin-bottom: 15px;
+            ">
+            ✦ Versículo do Dia ✦
+        </div>
+
+        <p
+            id="verseText"
+            style="
+                color: #E5E5E5;
+                font-size: 1.25rem;
+                line-height: 1.7;
+                font-style: italic;
+                margin-bottom: 10px;
+            ">
+            Carregando versículo...
+        </p>
+
+        <span
+            id="verseRef"
+            style="
+                color: #F4E4BC;
+                font-size: 0.95rem;
+                letter-spacing: 1px;
+            ">
+        </span>
+
+    </div>
+
+</div>
+</section>
 
     <div class="container mb-5">
         <div class="row g-4">
@@ -737,6 +800,145 @@ function carregarConteudo() {
 </script>
 
 <script>
+
+    const versiculosDoDia = [
+    { text: "O Senhor é o meu pastor; nada me faltará.", ref: "Salmos 23:1" },
+    { text: "Tudo posso naquele que me fortalece.", ref: "Filipenses 4:13" },
+    { text: "O amor é paciente, o amor é bondoso.", ref: "1 Coríntios 13:4" },
+    { text: "Porque Deus amou o mundo de tal maneira que deu o seu Filho.", ref: "João 3:16" },
+    { text: "Entrega o teu caminho ao Senhor; confia nele, e ele o fará.", ref: "Salmos 37:5" },
+    { text: "Não temas, porque eu sou contigo.", ref: "Isaías 41:10" },
+    { text: "O Senhor é a minha luz e a minha salvação; a quem temerei?", ref: "Salmos 27:1" },
+    { text: "Buscai primeiro o Reino de Deus e a sua justiça.", ref: "Mateus 6:33" },
+    { text: "O Senhor é bom, é fortaleza no dia da angústia.", ref: "Naum 1:7" },
+    { text: "Confia no Senhor de todo o teu coração.", ref: "Provérbios 3:5" },
+
+    { text: "Alegrai-vos sempre no Senhor.", ref: "Filipenses 4:4" },
+    { text: "Deus é o nosso refúgio e fortaleza.", ref: "Salmos 46:1" },
+    { text: "O amor nunca falha.", ref: "1 Coríntios 13:8" },
+    { text: "Lâmpada para os meus pés é a tua palavra.", ref: "Salmos 119:105" },
+    { text: "O Senhor lutará por vós.", ref: "Êxodo 14:14" },
+    { text: "Se Deus é por nós, quem será contra nós?", ref: "Romanos 8:31" },
+    { text: "Porque andamos por fé, e não por vista.", ref: "2 Coríntios 5:7" },
+    { text: "O Senhor é misericordioso e compassivo.", ref: "Salmos 103:8" },
+    { text: "O temor do Senhor é o princípio da sabedoria.", ref: "Provérbios 9:10" },
+    { text: "Em tudo dai graças.", ref: "1 Tessalonicenses 5:18" },
+
+    { text: "Bem-aventurados os que confiam no Senhor.", ref: "Jeremias 17:7" },
+    { text: "O Senhor está perto dos que têm o coração quebrantado.", ref: "Salmos 34:18" },
+    { text: "A fé é o firme fundamento das coisas que se esperam.", ref: "Hebreus 11:1" },
+    { text: "Jesus Cristo é o mesmo ontem, hoje e eternamente.", ref: "Hebreus 13:8" },
+    { text: "O Senhor é bondoso para com todos.", ref: "Salmos 145:9" },
+    { text: "O choro pode durar uma noite, mas a alegria vem pela manhã.", ref: "Salmos 30:5" },
+    { text: "Aquietai-vos e sabei que eu sou Deus.", ref: "Salmos 46:10" },
+    { text: "Deleita-te também no Senhor.", ref: "Salmos 37:4" },
+    { text: "O meu socorro vem do Senhor.", ref: "Salmos 121:2" },
+    { text: "O Senhor te guardará de todo o mal.", ref: "Salmos 121:7" },
+
+    { text: "Bem-aventurados os pacificadores.", ref: "Mateus 5:9" },
+    { text: "Bem-aventurados os que choram, porque serão consolados.", ref: "Mateus 5:4" },
+    { text: "Eu sou o caminho, a verdade e a vida.", ref: "João 14:6" },
+    { text: "Vinde a mim, todos os que estais cansados.", ref: "Mateus 11:28" },
+    { text: "Porque para Deus nada é impossível.", ref: "Lucas 1:37" },
+    { text: "O Senhor é justo em todos os seus caminhos.", ref: "Salmos 145:17" },
+    { text: "Ele cura os quebrantados de coração.", ref: "Salmos 147:3" },
+    { text: "O Senhor é fiel em todas as suas palavras.", ref: "Salmos 145:13" },
+    { text: "Sede fortes e corajosos.", ref: "Josué 1:9" },
+    { text: "O Senhor é minha rocha e minha fortaleza.", ref: "Salmos 18:2" },
+
+    { text: "Crê no Senhor Jesus e serás salvo.", ref: "Atos 16:31" },
+    { text: "O salário do pecado é a morte.", ref: "Romanos 6:23" },
+    { text: "A graça de Deus se manifestou salvadora.", ref: "Tito 2:11" },
+    { text: "Deus é amor.", ref: "1 João 4:8" },
+    { text: "O amor perfeito lança fora o medo.", ref: "1 João 4:18" },
+    { text: "Aquele que começou boa obra em vós a aperfeiçoará.", ref: "Filipenses 1:6" },
+    { text: "O Senhor é quem te guarda.", ref: "Salmos 121:5" },
+    { text: "Elevo os meus olhos para os montes.", ref: "Salmos 121:1" },
+    { text: "A tua palavra é a verdade.", ref: "João 17:17" },
+    { text: "Santifica-os na verdade.", ref: "João 17:17" },
+
+    { text: "O Senhor te abençoe e te guarde.", ref: "Números 6:24" },
+    { text: "A misericórdia do Senhor é eterna.", ref: "Salmos 136:1" },
+    { text: "O Senhor reina para sempre.", ref: "Salmos 146:10" },
+    { text: "Ele é a nossa paz.", ref: "Efésios 2:14" },
+    { text: "Andai em amor.", ref: "Efésios 5:2" },
+    { text: "Revesti-vos da armadura de Deus.", ref: "Efésios 6:11" },
+    { text: "O Senhor é meu pastor.", ref: "Salmos 23:1" },
+    { text: "Deus é o mesmo ontem, hoje e sempre.", ref: "Hebreus 13:8" },
+    { text: "Aquele que habita no esconderijo do Altíssimo.", ref: "Salmos 91:1" },
+    { text: "Mil cairão ao teu lado.", ref: "Salmos 91:7" },
+
+    { text: "Porque eu bem sei os planos que tenho para vós.", ref: "Jeremias 29:11" },
+    { text: "O Senhor é grande e digno de louvor.", ref: "Salmos 145:3" },
+    { text: "Cantai ao Senhor um cântico novo.", ref: "Salmos 96:1" },
+    { text: "A tua palavra escondi no meu coração.", ref: "Salmos 119:11" },
+    { text: "O Senhor é bom para com todos.", ref: "Salmos 145:9" },
+    { text: "A fé vem pelo ouvir.", ref: "Romanos 10:17" },
+    { text: "Sede santos porque eu sou santo.", ref: "1 Pedro 1:16" },
+    { text: "Humilhai-vos perante o Senhor.", ref: "Tiago 4:10" },
+    { text: "O Senhor exalta os humildes.", ref: "Lucas 1:52" },
+    { text: "Bem-aventurados os limpos de coração.", ref: "Mateus 5:8" }
+];
+
+
+// 🔥 gera sempre o mesmo versículo no mesmo dia
+function getVersiculoDoDia() {
+   const hoje = new Date();
+const seed =
+    hoje.getUTCFullYear() * 10000 +
+    (hoje.getUTCMonth() + 1) * 100 +
+    hoje.getUTCDate();
+
+    const index = seed % versiculosDoDia.length;
+
+    return versiculosDoDia[index];
+}
+
+// 📖 carrega no HTML
+function carregarVersiculoDoDia() {
+    const v = getVersiculoDoDia();
+
+    const text = document.getElementById("verseText");
+    const ref = document.getElementById("verseRef");
+
+    if (!text || !ref) return;
+
+    text.innerText = `"${v.text}"`;
+    ref.innerText = v.ref;
+}
+
+// ⏰ calcula tempo até à meia-noite (mais seguro)
+function msUntilMidnight() {
+    const now = new Date();
+    const next = new Date();
+
+    next.setDate(now.getDate() + 1);
+    next.setHours(24, 0, 0, 0);
+
+    return next - now;
+}
+
+// 🔁 agenda atualização automática diária
+function agendarAtualizacaoMeiaNoite() {
+    setTimeout(() => {
+        carregarVersiculoDoDia();
+        agendarAtualizacaoMeiaNoite();
+    }, msUntilMidnight());
+}
+
+// 👁️ atualiza quando o utilizador volta ao site
+document.addEventListener("visibilitychange", () => {
+    if (!document.hidden) {
+        carregarVersiculoDoDia();
+    }
+});
+
+// 🚀 inicialização
+carregarVersiculoDoDia();
+agendarAtualizacaoMeiaNoite();
+</script>
+
+<script>
         if ('serviceWorker' in navigator) {
             window.addEventListener('load', () => {
                 navigator.serviceWorker.register('./service-worker.js')
@@ -754,6 +956,52 @@ function carregarConteudo() {
 
   gtag('config', 'G-NFBJTTC7L8');
 </script>
+<a href="doacoes.html"
+style="
+position:fixed;
+right:20px;
+bottom:20px;
+
+padding:12px 18px;
+
+background:#C8A96B;
+
+color:#000;
+
+border-radius:30px;
+
+display:flex;
+align-items:center;
+justify-content:center;
+
+font-size:13px;
+font-weight:700;
+font-family:'Cinzel', serif;
+letter-spacing:1px;
+text-transform:uppercase;
+
+text-decoration:none;
+
+z-index:999999;
+
+box-shadow:0 4px 12px rgba(0,0,0,.25);
+
+transition:all .3s ease;
+"
+
+onmouseover="
+this.style.transform='translateY(-4px) rotate(-2deg)';
+this.style.background='#D4B77F';
+"
+
+onmouseout="
+this.style.transform='translateY(0) rotate(0deg)';
+this.style.background='#C8A96B';
+">
+
+Apoie a Nossa Missão!
+
+</a>
 
 </body>
 </html>
