@@ -226,6 +226,33 @@ h1, h2, h3, .nav-link, .section-title {
     letter-spacing: 2px;
     font-family: 'Cinzel', serif;
 }
+.btn-yahweh-verse {
+    background: linear-gradient(to bottom, #F4E4BC 0%, #C8A96B 50%, #8B6E3C 100%);
+    color: #000;
+    border: 1px solid rgba(255,255,255,.10);
+    padding: 14px 40px;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-family: 'Cinzel', serif;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.btn-yahweh-verse:hover {
+    transform: translateY(-3px);
+    background: linear-gradient(to bottom, #FFF2D6, #D4B77F, #A88345);
+    color: #000;
+}
+
+/* Ajuste específico para telemóveis */
+@media (max-width: 768px) {
+    .btn-yahweh-gold,
+    .btn-yahweh-verse,
+    .btn-yahweh-outline {
+        width: 100%; /* Faz os botões ocuparem toda a largura em mobile */
+        margin-bottom: 5px;
+    }
+}
 
 /* INFO SECTION */
 
@@ -723,43 +750,19 @@ footer {
             <p class="hero-subtitle">“Aprofunda-te na Palavra do Senhor.”</p>
            <div class="mb-4">
 
-    <a href="biblia.html" class="btn btn-yahweh-gold me-3">
+   <!-- SUBSTITUI A TUA DIV DE BOTÕES ATUAL POR ESTA -->
+<div class="d-flex flex-wrap justify-content-center gap-3 mt-4">
+    <a href="biblia.html" class="btn btn-yahweh-gold">
         Ler Bíblia
     </a>
 
-  <a href="biblia.html"
-style="
-background:linear-gradient(to bottom,#F4E4BC 0%,#C8A96B 50%,#8B6E3C 100%);
-color:#000;
-border:1px solid rgba(255,255,255,.10);
-padding:12px 22px;
-font-family:'Cinzel',serif;
-font-weight:700;
-letter-spacing:1px;
-text-transform:uppercase;
-text-decoration:none;
-display:inline-block;
-box-shadow:0 3px 10px rgba(0,0,0,.25);
-transition:all .3s ease;
-border-radius:0;
-"
-onmouseover="
-this.style.transform='translateY(-3px)';
-this.style.boxShadow='0 6px 14px rgba(0,0,0,.30)';
-this.style.background='linear-gradient(to bottom,#FFF2D6,#D4B77F,#A88345)';
-"
-onmouseout="
-this.style.transform='translateY(0)';
-this.style.boxShadow='0 3px 10px rgba(0,0,0,.25)';
-this.style.background='linear-gradient(to bottom,#F4E4BC 0%,#C8A96B 50%,#8B6E3C 100%)';
-">
-✦ Versículo do Dia ✦
-</a>
+    <a href="biblia.html" class="btn btn-yahweh-verse">
+        ✦ Versículo do Dia ✦
+    </a>
 
     <a href="ia.html" class="btn btn-yahweh-outline">
         Tem alguma dúvida?
     </a>
-
 </div>
             <div class="hero-divider"></div>
             <div class="hero-sub-footer">
